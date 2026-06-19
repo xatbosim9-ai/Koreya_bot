@@ -160,6 +160,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "안녕하세요! 👋\n\n"
         "*KOREYA-가 so'z bot*'iga xush kelibsiz!\n"
         f"Bu yerda {len(CHAPTERS)} ta mavzu va {len(ALL_WORDS)} ta so'z bor.\n\n"
+        "Admin: @whsdvv\n\n"
         "Quyidagilardan birini tanlang:"
     )
     await update.message.reply_text(text, reply_markup=main_menu_kb(), parse_mode=ParseMode.MARKDOWN)
