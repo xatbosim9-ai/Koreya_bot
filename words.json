@@ -1,0 +1,1322 @@
+[
+ {
+  "title": "Mashhurlik",
+  "titleUz": "Mashhurlik va e'tibor mavzusidagi so'zlar",
+  "words": [
+   {
+    "kr": "열풍",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "shiddatli moda, hayajon to'lqini",
+    "exKr": "전국적으로 캠핑 *열풍*이 불고 있다.",
+    "exUz": "Butun mamlakat bo'ylab kemping moda to'lqini esmoqda."
+   },
+   {
+    "kr": "열기",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "hayajon, ishtiyoq",
+    "exKr": "경기장은 관중들의 뜨거운 *열기*로 가득했다.",
+    "exUz": "Stadion tomoshabinlarning shiddatli ishtiyoqi bilan to'lib-toshgan edi."
+   },
+   {
+    "kr": "인기를 끌다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "mashhur bo'lmoq, e'tibor tortmoq",
+    "exKr": "이 드라마는 해외에서도 큰 *인기를 끌고* 있다.",
+    "exUz": "Bu serial chet elda ham katta mashhurlik qozonmoqda."
+   },
+   {
+    "kr": "인기 폭발",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "mashhurlikning portlashi",
+    "exKr": "신제품이 출시되자마자 *인기 폭발*이었다.",
+    "exUz": "Yangi mahsulot chiqishi bilanoq mashhurlik portladi."
+   },
+   {
+    "kr": "각광",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "diqqat markazi, prožektor nuri",
+    "exKr": "친환경 소재가 새롭게 *각광*을 받고 있다.",
+    "exUz": "Ekologik materiallar yangidan diqqat markazida turibdi."
+   },
+   {
+    "kr": "유명세",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "shuhrat (ko'pincha salbiy oqibati bilan)",
+    "exKr": "그는 갑작스러운 *유명세*를 치르고 있다.",
+    "exUz": "U to'satdan kelgan shuhratning og'irligini his qilmoqda."
+   },
+   {
+    "kr": "흥행",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "kassa muvaffaqiyati",
+    "exKr": "그 영화는 개봉 첫 주부터 *흥행*에 성공했다.",
+    "exUz": "O'sha film namoyish bo'lgan birinchi haftadanoq kassada g'olib chiqdi."
+   },
+   {
+    "kr": "폭주",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "keskin oshib ketish, bostirib kelish",
+    "exKr": "예매 시작과 동시에 주문이 *폭주*했다.",
+    "exUz": "Bron boshlanishi bilan buyurtmalar keskin oshib ketdi."
+   },
+   {
+    "kr": "전성시대",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "gullab-yashnagan davr",
+    "exKr": "1990년대는 가요계의 *전성시대*였다.",
+    "exUz": "1990-yillar musiqa sanoatining gullab-yashnagan davri edi."
+   },
+   {
+    "kr": "성수기",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "yuqori mavsum",
+    "exKr": "여름은 관광업계의 *성수기*이다.",
+    "exUz": "Yoz — turizm sohasining yuqori mavsumidir."
+   },
+   {
+    "kr": "사로잡다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "o'ziga rom qilmoq, maftun etmoq",
+    "exKr": "그 배우의 연기는 관객의 마음을 *사로잡았다*.",
+    "exUz": "O'sha aktyorning o'yini tomoshabinlar qalbini rom etdi."
+   },
+   {
+    "kr": "시선을 끌다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "e'tiborni tortmoq",
+    "exKr": "독특한 디자인이 사람들의 *시선을 끌었다*.",
+    "exUz": "Noodatiy dizayn odamlarning e'tiborini tortdi."
+   }
+  ]
+ },
+ {
+  "title": "Odamlar",
+  "titleUz": "Olomon va jamoatchilik holatini ifodalovchi so'zlar",
+  "words": [
+   {
+    "kr": "인파",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "olomon",
+    "exKr": "광장은 축제를 즐기려는 *인파*로 발 디딜 틈이 없었다.",
+    "exUz": "Maydon bayramni qiziqayotgan olomondan oyoq qo'yishga joy qolmagandi."
+   },
+   {
+    "kr": "북새통",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "gavjum holat, tartibsizlik",
+    "exKr": "명절 기차역은 그야말로 *북새통*이었다.",
+    "exUz": "Bayram kunlari temir yo'l bekati haqiqiy gavjum holatda edi."
+   },
+   {
+    "kr": "성업",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "savdo yaxshi yurishi",
+    "exKr": "그 식당은 십 년째 *성업* 중이다.",
+    "exUz": "O'sha restoran o'n yildan beri savdosi yaxshi yurib kelmoqda."
+   },
+   {
+    "kr": "몰리다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "to'planmoq",
+    "exKr": "할인 행사에 손님들이 한꺼번에 *몰렸다*.",
+    "exUz": "Chegirma tadbiriga mijozlar bir vaqtning o'zida to'plandi."
+   },
+   {
+    "kr": "몰려들다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "oqib kelmoq",
+    "exKr": "관광객들이 벚꽃 명소로 *몰려들었다*.",
+    "exUz": "Sayyohlar sakura gullash joyiga oqib kela boshladi."
+   },
+   {
+    "kr": "넘치다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "to'lib ketmoq",
+    "exKr": "공연장은 열정 *넘치는* 팬들로 가득했다.",
+    "exUz": "Konsert zali ishtiyoqqa to'lib ketgan muxlislar bilan to'la edi."
+   },
+   {
+    "kr": "북적대다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "gavjum bo'lmoq",
+    "exKr": "주말 시장은 사람들로 *북적댄다*.",
+    "exUz": "Dam olish kuni bozor odamlar bilan gavjum bo'ladi."
+   },
+   {
+    "kr": "한산하다",
+    "pos": "Sifat",
+    "posClass": "adj",
+    "uz": "odam kam bo'lmoq, sokin bo'lmoq",
+    "exKr": "평일 낮의 거리는 비교적 *한산했다*.",
+    "exUz": "Hafta ichi kunduzi ko'cha nisbatan sokin edi."
+   }
+  ]
+ },
+ {
+  "title": "O'sish va Ko'tarilish",
+  "titleUz": "Statistik tendensiya va o'zgarish so'zlari",
+  "words": [
+   {
+    "kr": "신기록",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "yangi rekord",
+    "exKr": "그 선수는 마라톤에서 *신기록*을 세웠다.",
+    "exUz": "O'sha sportchi marafonda yangi rekord o'rnatdi."
+   },
+   {
+    "kr": "역대 최고",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "tarixdagi eng yuqori ko'rsatkich",
+    "exKr": "올해 매출이 *역대 최고*를 기록했다.",
+    "exUz": "Bu yilgi savdo tarixdagi eng yuqori ko'rsatkichni qayd etdi."
+   },
+   {
+    "kr": "상승 곡선",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "o'sish egri chizig'i",
+    "exKr": "주가는 꾸준한 *상승 곡선*을 그리고 있다.",
+    "exUz": "Aksiya narxi barqaror o'sish egri chizig'ini chizmoqda."
+   },
+   {
+    "kr": "오름세",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "o'sish tendensiyasi",
+    "exKr": "최근 부동산 가격이 *오름세*를 보이고 있다.",
+    "exUz": "So'nggi paytda ko'chmas mulk narxi o'sish tendensiyasini ko'rsatmoqda."
+   },
+   {
+    "kr": "안정세",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "barqaror holat",
+    "exKr": "물가가 다소 *안정세*로 접어들었다.",
+    "exUz": "Narxlar nisbatan barqaror holatga kira boshladi."
+   },
+   {
+    "kr": "돌파",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "oshib o'tish, chegarani yorib o'tish",
+    "exKr": "관객 수가 천만 명을 *돌파*했다.",
+    "exUz": "Tomoshabinlar soni o'n million kishini oshib o'tdi."
+   },
+   {
+    "kr": "추월하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "quvib o'tmoq",
+    "exKr": "신생 기업이 업계 1위를 *추월했다*.",
+    "exUz": "Yangi kompaniya sohadagi yetakchini quvib o'tdi."
+   },
+   {
+    "kr": "전진",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "oldinga siljish",
+    "exKr": "팀은 목표를 향해 한 걸음 *전진*했다.",
+    "exUz": "Jamoa maqsad sari bir qadam oldinga siljidi."
+   },
+   {
+    "kr": "과잉",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "ortiqchalik",
+    "exKr": "생산 *과잉*으로 가격이 하락했다.",
+    "exUz": "Ishlab chiqarish ortiqchaligi tufayli narxlar tushib ketdi."
+   },
+   {
+    "kr": "가파르다",
+    "pos": "Sifat",
+    "posClass": "adj",
+    "uz": "keskin (tikka)",
+    "exKr": "올해 들어 물가 상승세가 *가파르다*.",
+    "exUz": "Bu yilda narxlar o'sishi keskin tus oldi."
+   },
+   {
+    "kr": "들썩이다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "tebranmoq, hayajonlanmoq",
+    "exKr": "신제품 발표에 시장 전체가 *들썩였다*.",
+    "exUz": "Yangi mahsulot e'lonidan butun bozor hayajonga tushdi."
+   },
+   {
+    "kr": "인상 / 인하",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "narx oshishi / narx kamayishi",
+    "exKr": "정부는 최저임금 *인상*을 발표했다.",
+    "exUz": "Hukumat eng kam ish haqining oshirilishini e'lon qildi."
+   },
+   {
+    "kr": "급등 / 폭등",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "keskin ko'tarilish, narxning portlab oshishi",
+    "exKr": "유가가 국제 정세 불안으로 *급등*했다.",
+    "exUz": "Neft narxi xalqaro vaziyat noaniqligi tufayli keskin ko'tarildi."
+   }
+  ]
+ },
+ {
+  "title": "Iqtisodiyot",
+  "titleUz": "Bozor, narx va savdo terminologiyasi",
+  "words": [
+   {
+    "kr": "물가",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "buyum narxlari",
+    "exKr": "최근 *물가* 상승으로 서민들이 어려움을 겪고 있다.",
+    "exUz": "So'nggi paytdagi narx oshishi tufayli oddiy xalq qiyinchilik chekmoqda."
+   },
+   {
+    "kr": "유가",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "neft narxi",
+    "exKr": "*유가* 변동이 물가 전반에 영향을 미친다.",
+    "exUz": "Neft narxining o'zgarishi umumiy narxlarga ta'sir qiladi."
+   },
+   {
+    "kr": "수요자",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "iste'molchi",
+    "exKr": "*수요자*의 요구에 맞춰 제품을 개발해야 한다.",
+    "exUz": "Iste'molchi talabiga mos mahsulot ishlab chiqish kerak."
+   },
+   {
+    "kr": "공급자",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "ta'minlovchi",
+    "exKr": "*공급자*와의 협상이 원활하게 진행되었다.",
+    "exUz": "Ta'minlovchi bilan muzokara muvaffaqiyatli o'tdi."
+   },
+   {
+    "kr": "출하량",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "ishlab chiqarish/yetkazib berish hajmi",
+    "exKr": "반도체 *출하량*이 전년 대비 증가했다.",
+    "exUz": "Yarimo'tkazgich yetkazib berish hajmi o'tgan yilga nisbatan oshdi."
+   },
+   {
+    "kr": "후불제 / 선불제",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "keyin to'lash / oldindan to'lov",
+    "exKr": "이 서비스는 *후불제*로 운영된다.",
+    "exUz": "Bu xizmat keyin to'lash tizimi asosida ishlaydi."
+   },
+   {
+    "kr": "웃다 / 울상",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "foyda qilyapti / ishi yurmayapti",
+    "exKr": "수출 기업들은 *웃고* 내수 기업들은 *울상*을 짓고 있다.",
+    "exUz": "Eksport kompaniyalari foyda qilmoqda, ichki bozor kompaniyalari esa ishi yurishmayapti."
+   },
+   {
+    "kr": "부동산",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "rieltorlik, ko'chmas mulk",
+    "exKr": "*부동산* 시장이 다시 활기를 띠고 있다.",
+    "exUz": "Ko'chmas mulk bozori yana jonlanmoqda."
+   }
+  ]
+ },
+ {
+  "title": "Ko'chmas Mulk va Davlat",
+  "titleUz": "Uy-joy, boshqaruv va rasmiy terminologiya",
+  "words": [
+   {
+    "kr": "분양",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "yangi uy (sotuvi)",
+    "exKr": "신규 아파트 *분양*이 시작되었다.",
+    "exUz": "Yangi turar-joy uylarining sotuvi boshlandi."
+   },
+   {
+    "kr": "매매",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "oldi-sotdi",
+    "exKr": "아파트 *매매* 가격이 소폭 상승했다.",
+    "exUz": "Kvartiralar oldi-sotdi narxi sal-pal oshdi."
+   },
+   {
+    "kr": "전세",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "katta depozit asosidagi ijara",
+    "exKr": "*전세* 보증금이 너무 올라 부담스럽다.",
+    "exUz": "Ijara depoziti juda oshib ketgani og'irlik qilmoqda."
+   },
+   {
+    "kr": "연일",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "ketma-ket kunlar davomida",
+    "exKr": "*연일* 폭염이 계속되고 있다.",
+    "exUz": "Ketma-ket kunlar davomida shiddatli issiq davom etmoqda."
+   },
+   {
+    "kr": "안녕",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "xayr, tugash, tinchlik",
+    "exKr": "긴 협상에 마침내 *안녕*을 고했다.",
+    "exUz": "Uzoq davom etgan muzokaraga nihoyat xayr aytildi."
+   },
+   {
+    "kr": "기습",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "to'satdan hujum/qaror",
+    "exKr": "정부가 *기습* 발표를 내놓았다.",
+    "exUz": "Hukumat to'satdan e'lon qildi."
+   },
+   {
+    "kr": "환영",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "ijobiy kutib olish",
+    "exKr": "새 정책이 시민들의 *환영*을 받았다.",
+    "exUz": "Yangi siyosat fuqarolar tomonidan ijobiy kutib olindi."
+   },
+   {
+    "kr": "부처",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "vazirlik",
+    "exKr": "관련 *부처*가 합동 대책을 마련했다.",
+    "exUz": "Tegishli vazirlik birgalikda chora-tadbirlar ishlab chiqdi."
+   },
+   {
+    "kr": "천차만별",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "xilma-xil, har xil",
+    "exKr": "지역별로 집값은 *천차만별*이다.",
+    "exUz": "Hududlarga qarab uy narxi har xil bo'ladi."
+   },
+   {
+    "kr": "지킴이 / 도움이",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "himoyachi / yordamchi",
+    "exKr": "자원봉사자들이 마을의 *지킴이* 역할을 한다.",
+    "exUz": "Ko'ngillilar qishloqning himoyachisi vazifasini bajaradi."
+   }
+  ]
+ },
+ {
+  "title": "Holat va Baho",
+  "titleUz": "Baholash va favqulodda holat terminologiyasi",
+  "words": [
+   {
+    "kr": "만점",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "eng yuqori baho",
+    "exKr": "새 식당은 손님들에게 *만점*을 받았다.",
+    "exUz": "Yangi restoran mijozlardan eng yuqori bahoni oldi."
+   },
+   {
+    "kr": "전쟁",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "raqobat, kurash (majoziy)",
+    "exKr": "기업들의 가격 *전쟁*이 치열하다.",
+    "exUz": "Kompaniyalar o'rtasidagi narx kurashi keskin."
+   },
+   {
+    "kr": "해결사",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "hal qiluvchi shaxs",
+    "exKr": "그는 위기 상황의 *해결사*로 불린다.",
+    "exUz": "U inqirozli vaziyatlarning hal qiluvchisi deb ataladi."
+   },
+   {
+    "kr": "이색 행사",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "noodatiy tadbir",
+    "exKr": "올해 축제는 *이색 행사*로 가득했다.",
+    "exUz": "Bu yilgi bayram noodatiy tadbirlarga boy edi."
+   },
+   {
+    "kr": "만발",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "gullab-yashnagan, xilma-xillik",
+    "exKr": "공원에는 봄꽃이 *만발*했다.",
+    "exUz": "Bog'da bahor gullari gullab-yashnagan edi."
+   },
+   {
+    "kr": "이상 무",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "muammosi yo'q",
+    "exKr": "점검 결과 시설에 *이상 무*로 확인되었다.",
+    "exUz": "Tekshiruv natijasida inshootda muammo yo'qligi aniqlandi."
+   },
+   {
+    "kr": "비상",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "favqulodda holat",
+    "exKr": "정부는 *비상* 대책 회의를 소집했다.",
+    "exUz": "Hukumat favqulodda chora-tadbirlar bo'yicha majlis chaqirdi."
+   },
+   {
+    "kr": "정상화",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "normallashuv",
+    "exKr": "교통 상황이 점차 *정상화*되고 있다.",
+    "exUz": "Transport vaziyati asta-sekin normallashmoqda."
+   },
+   {
+    "kr": "금물",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "qat'iy taqiqlangan narsa",
+    "exKr": "방심은 *금물*이다.",
+    "exUz": "Hushyorlikni yo'qotish qat'iy taqiqlanadi."
+   },
+   {
+    "kr": "탈바꿈",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "yangicha o'zgarish (바꾸다)",
+    "exKr": "낡은 건물이 미술관으로 *탈바꿈*했다.",
+    "exUz": "Eski bino badiiy galereyaga aylantirildi."
+   },
+   {
+    "kr": "기미",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "alomat, bashorat qilinadigan belgi",
+    "exKr": "경기가 회복될 *기미*를 보이고 있다.",
+    "exUz": "Iqtisodiyot tiklanish alomatini ko'rsatmoqda."
+   },
+   {
+    "kr": "비명 / 충동",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "qichqiriq / bir lahzalik istak",
+    "exKr": "세일 소식에 구매 *충동*을 느꼈다.",
+    "exUz": "Chegirma xabaridan xarid qilish istagi paydo bo'ldi."
+   }
+  ]
+ },
+ {
+  "title": "Sport va Raqobat",
+  "titleUz": "Musobaqa, strategiya va g'alaba so'zlari",
+  "words": [
+   {
+    "kr": "수비 / 공격",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "himoya / hujum",
+    "exKr": "팀은 *수비*보다 *공격*에 집중했다.",
+    "exUz": "Jamoa himoyadan ko'ra hujumga ko'proq e'tibor qaratdi."
+   },
+   {
+    "kr": "전략",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "strategiya",
+    "exKr": "감독은 새로운 *전략*을 도입했다.",
+    "exUz": "Murabbiy yangi strategiyani joriy qildi."
+   },
+   {
+    "kr": "압도적",
+    "pos": "Sifat",
+    "posClass": "adj",
+    "uz": "ustun, hal qiluvchi darajada katta",
+    "exKr": "한국 팀이 *압도적*인 차이로 승리했다.",
+    "exUz": "Koreya jamoasi ustunlik bilan g'alaba qozondi."
+   },
+   {
+    "kr": "승리 / 패배",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "g'alaba / mag'lubiyat",
+    "exKr": "접전 끝에 값진 *승리*를 거두었다.",
+    "exUz": "Keskin kurashdan so'ng qimmatli g'alabaga erishildi."
+   },
+   {
+    "kr": "대표팀",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "terma jamoa",
+    "exKr": "국가 *대표팀*이 결승에 진출했다.",
+    "exUz": "Milliy terma jamoa final bosqichiga chiqdi."
+   },
+   {
+    "kr": "감독",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "murabbiy, rejissyor",
+    "exKr": "새 *감독*이 팀의 분위기를 바꿔 놓았다.",
+    "exUz": "Yangi murabbiy jamoa muhitini o'zgartirib yubordi."
+   },
+   {
+    "kr": "성과",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "natija, yutuq",
+    "exKr": "꾸준한 노력 끝에 좋은 *성과*를 거두었다.",
+    "exUz": "Doimiy harakatdan so'ng yaxshi natijaga erishildi."
+   },
+   {
+    "kr": "별들의 전쟁",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "yulduzlar raqobati (masalan, Ronaldo va Messi)",
+    "exKr": "이번 결승전은 그야말로 *별들의 전쟁*이었다.",
+    "exUz": "Bu finalning o'zi haqiqiy yulduzlar raqobati edi."
+   }
+  ]
+ },
+ {
+  "title": "Madaniyat va Jumboq",
+  "titleUz": "Kino, jamiyat va muzokara so'zlari",
+  "words": [
+   {
+    "kr": "물음표",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "savol belgisi",
+    "exKr": "정책의 효과에 대해 *물음표*가 붙는다.",
+    "exUz": "Siyosatning samaradorligi haqida savol belgisi qolmoqda."
+   },
+   {
+    "kr": "극장가",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "kinoteatrlar hududi",
+    "exKr": "여름 *극장가*는 대작들로 붐빈다.",
+    "exUz": "Yozgi kinoteatrlar hududi katta loyihalardan gavjum."
+   },
+   {
+    "kr": "예매율",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "bron qilish foizi",
+    "exKr": "신작 영화의 *예매율*이 1위를 차지했다.",
+    "exUz": "Yangi filmning bron qilish foizi birinchi o'rinni egalladi."
+   },
+   {
+    "kr": "노화",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "qarish",
+    "exKr": "규칙적인 운동은 *노화*를 늦춘다.",
+    "exUz": "Muntazam jismoniy mashqlar qarishni sekinlashtiradi."
+   },
+   {
+    "kr": "수수께끼",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "jumboq, masala",
+    "exKr": "사건의 진실은 여전히 *수수께끼*로 남아 있다.",
+    "exUz": "Voqeaning haqiqati hanuzgacha jumboq bo'lib qolmoqda."
+   },
+   {
+    "kr": "회수율",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "qaytish foizi",
+    "exKr": "대출 *회수율*이 작년보다 낮아졌다.",
+    "exUz": "Kredit qaytish foizi o'tgan yilga qaraganda pasaydi."
+   },
+   {
+    "kr": "존폐",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "mavjud bo'lish yoki tugatilish",
+    "exKr": "제도의 *존폐* 여부를 두고 논쟁이 계속된다.",
+    "exUz": "Tizimning saqlanishi yoki bekor qilinishi haqida bahs davom etmoqda."
+   },
+   {
+    "kr": "회담 / 성사",
+    "pos": "Ot",
+    "posClass": "noun",
+    "uz": "muzokara / amalga oshish",
+    "exKr": "정상 *회담*이 마침내 *성사*되었다.",
+    "exUz": "Davlat boshliqlari muzokarasi nihoyat amalga oshdi."
+   }
+  ]
+ },
+ {
+  "title": "TOPIK II Fe'llar",
+  "titleUz": "25–27-savol turidagi yuqori chastotali fe'llar",
+  "words": [
+   {
+    "kr": "단속하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "nazorat qilmoq",
+    "exKr": "경찰이 불법 주차를 *단속하고* 있다.",
+    "exUz": "Politsiya noqonuniy to'xtab turishni nazorat qilmoqda."
+   },
+   {
+    "kr": "강화하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "kuchaytirmoq",
+    "exKr": "보안 체계를 한층 *강화했다*.",
+    "exUz": "Xavfsizlik tizimi yanada kuchaytirildi."
+   },
+   {
+    "kr": "결항하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "reys bekor qilinmoq",
+    "exKr": "폭설로 항공편이 모두 *결항했다*.",
+    "exUz": "Kuchli qor tufayli barcha reyslar bekor qilindi."
+   },
+   {
+    "kr": "조난당하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "falokatga uchramoq",
+    "exKr": "등산객이 산속에서 *조난당했다*.",
+    "exUz": "Tog'ga chiquvchi tog'da falokatga uchradi."
+   },
+   {
+    "kr": "구조하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "qutqarmoq",
+    "exKr": "소방대원이 아이를 무사히 *구조했다*.",
+    "exUz": "O't o'chiruvchi bolani omon qutqardi."
+   },
+   {
+    "kr": "달성하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "erishmoq",
+    "exKr": "올해 목표 매출을 *달성했다*.",
+    "exUz": "Bu yilgi savdo maqsadiga erishildi."
+   },
+   {
+    "kr": "대우하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "muomala qilmoq",
+    "exKr": "직원들을 공정하게 *대우해야* 한다.",
+    "exUz": "Xodimlarga adolatli muomala qilish kerak."
+   },
+   {
+    "kr": "확산하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "tarqalmoq",
+    "exKr": "바이러스가 빠르게 *확산하고* 있다.",
+    "exUz": "Virus tezda tarqalmoqda."
+   },
+   {
+    "kr": "마비되다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "falaj bo'lmoq",
+    "exKr": "폭우로 교통이 완전히 *마비되었다*.",
+    "exUz": "Kuchli yomg'ir tufayli transport butunlay falaj bo'ldi."
+   },
+   {
+    "kr": "몰두하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "berilib ketmoq",
+    "exKr": "그는 연구에 깊이 *몰두하고* 있다.",
+    "exUz": "U tadqiqotga chuqur berilib ketgan."
+   },
+   {
+    "kr": "무산되다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "bekor bo'lmoq (취소)",
+    "exKr": "예산 부족으로 계획이 *무산되었다*.",
+    "exUz": "Mablag' yetishmasligi sababli reja bekor bo'ldi."
+   },
+   {
+    "kr": "발굴하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "kashf etmoq (발견)",
+    "exKr": "새로운 인재를 *발굴했다*.",
+    "exUz": "Yangi iste'dod kashf etildi."
+   },
+   {
+    "kr": "방심하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "hushyorlikni yo'qotmoq",
+    "exKr": "끝까지 *방심하지* 말아야 한다.",
+    "exUz": "Oxirigacha hushyorlikni yo'qotmaslik kerak."
+   },
+   {
+    "kr": "부심하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "yechim topishga urinmoq",
+    "exKr": "정부는 대책 마련에 *부심하고* 있다.",
+    "exUz": "Hukumat chora topishga urinmoqda."
+   },
+   {
+    "kr": "식별하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "ajratib tanimoq",
+    "exKr": "CCTV로 용의자를 *식별했다*.",
+    "exUz": "Kuzatuv kamerasi orqali gumonlanuvchi ajratib tanildi."
+   },
+   {
+    "kr": "여전하다",
+    "pos": "Sifat",
+    "posClass": "adj",
+    "uz": "avvalgidek",
+    "exKr": "그의 열정은 *여전하다*.",
+    "exUz": "Uning ishtiyoqi avvalgidek qolmoqda."
+   },
+   {
+    "kr": "유입되다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "kirib kelmoq",
+    "exKr": "해외 자본이 대거 *유입되었다*.",
+    "exUz": "Xorijiy kapital katta miqdorda kirib keldi."
+   },
+   {
+    "kr": "유치하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "jalb qilmoq",
+    "exKr": "도시는 국제 행사를 *유치했다*.",
+    "exUz": "Shahar xalqaro tadbirni jalb qildi."
+   },
+   {
+    "kr": "절실하다",
+    "pos": "Sifat",
+    "posClass": "adj",
+    "uz": "zarur bo'lmoq (필요하다)",
+    "exKr": "근본적인 해결책이 *절실하다*.",
+    "exUz": "Tub yechim juda zarur."
+   },
+   {
+    "kr": "지연되다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "kechikmoq (늦다)",
+    "exKr": "기상 악화로 출항이 *지연되었다*.",
+    "exUz": "Ob-havoning yomonlashishi sababli jo'nash kechikdi."
+   },
+   {
+    "kr": "퇴사하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "ishdan bo'shamoq",
+    "exKr": "그는 십 년 만에 *퇴사했다*.",
+    "exUz": "U o'n yildan keyin ishdan bo'shadi."
+   },
+   {
+    "kr": "표류하다",
+    "pos": "Fe'l",
+    "posClass": "verb",
+    "uz": "sarson bo'lmoq",
+    "exKr": "협상이 합의점을 찾지 못한 채 *표류하고* 있다.",
+    "exUz": "Muzokara kelishuvga kelmasdan sarson bo'lib qolmoqda."
+   },
+   {
+    "kr": "험난하다",
+    "pos": "Sifat",
+    "posClass": "adj",
+    "uz": "mashaqqatli bo'lmoq",
+    "exKr": "정상까지의 길은 *험난했다*.",
+    "exUz": "Cho'qqigacha bo'lgan yo'l mashaqqatli edi."
+   }
+  ]
+ },
+ {
+  "title": "Ravishlar va Tasvirlar",
+  "titleUz": "Onomatopoeya va majoziy holat ravishlari",
+  "words": [
+   {
+    "kr": "글쎄",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "shubhali, noaniq",
+    "exKr": "*글쎄*, 좀 더 생각해 봐야겠다.",
+    "exUz": "Shubhali, biroz o'ylab ko'rishim kerak."
+   },
+   {
+    "kr": "껑충",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "birdaniga ko'tarilmoq",
+    "exKr": "물가가 한 번에 *껑충* 뛰었다.",
+    "exUz": "Narxlar bir vaqtning o'zida birdaniga ko'tarildi."
+   },
+   {
+    "kr": "동동",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "bezovta bo'lmoq, tipirchilamoq",
+    "exKr": "버스를 놓칠까 봐 발을 *동동* 굴렀다.",
+    "exUz": "Avtobusga kechikishdan qo'rqib, oyog'ini tipirchilatdi."
+   },
+   {
+    "kr": "두둑",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "mo'l-ko'l, ko'p",
+    "exKr": "올해는 보너스를 *두둑*하게 받았다.",
+    "exUz": "Bu yili mo'l-ko'l bonus olindi."
+   },
+   {
+    "kr": "뚝 / 뚝뚝",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "birdan, shartta / tomchilab",
+    "exKr": "매출이 *뚝* 떨어졌다.",
+    "exUz": "Savdo birdan tushib ketdi."
+   },
+   {
+    "kr": "부글부글",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "g'azablanmoq",
+    "exKr": "속이 *부글부글* 끓었다.",
+    "exUz": "Ichi g'azabdan qaynab ketdi."
+   },
+   {
+    "kr": "성큼",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "tez yetib kelish",
+    "exKr": "여름이 *성큼* 다가왔다.",
+    "exUz": "Yoz tezda yetib keldi."
+   },
+   {
+    "kr": "속속 / 속출하다",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "ketma-ket, birin-ketin",
+    "exKr": "신청자가 *속속* 늘고 있다.",
+    "exUz": "Arizachilar soni birin-ketin oshmoqda."
+   },
+   {
+    "kr": "썰렁하다",
+    "pos": "Sifat",
+    "posClass": "adj",
+    "uz": "sovuq, sust qiziqish",
+    "exKr": "행사장 분위기가 *썰렁했다*.",
+    "exUz": "Tadbir maydonchasi muhiti sust edi."
+   },
+   {
+    "kr": "쏙쏙 / 쑥쑥",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "osonlik bilan / tez o'smoq",
+    "exKr": "설명이 머리에 *쏙쏙* 들어왔다.",
+    "exUz": "Tushuntirish osonlik bilan miyaga singdi."
+   },
+   {
+    "kr": "오락가락",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "o'tga-bo'tga, keldi-ketdi",
+    "exKr": "정책이 *오락가락*해서 혼란스럽다.",
+    "exUz": "Siyosat keldi-ketdi bo'lgani uchun chalkash."
+   },
+   {
+    "kr": "착착",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "reja bo'yicha",
+    "exKr": "공사가 계획대로 *착착* 진행되고 있다.",
+    "exUz": "Qurilish reja bo'yicha izchil davom etmoqda."
+   },
+   {
+    "kr": "톡톡",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "samarali, ajralib turish",
+    "exKr": "신제품이 효과를 *톡톡*히 봤다.",
+    "exUz": "Yangi mahsulot ajralib turadigan samara berdi."
+   },
+   {
+    "kr": "팽팽 / 일제히",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "tarang / bir vaqtda",
+    "exKr": "두 후보가 *팽팽*한 접전을 벌였다.",
+    "exUz": "Ikki nomzod tarang kurash olib bordi."
+   },
+   {
+    "kr": "홀로 / 활짝 / 훨훨",
+    "pos": "Ravish",
+    "posClass": "adv",
+    "uz": "yolg'iz / keng / bemalol",
+    "exKr": "문이 *활짝* 열렸다.",
+    "exUz": "Eshik keng ochildi."
+   }
+  ]
+ },
+ {
+  "title": "Idiomalar I",
+  "titleUz": "Majoziy iboralar — A qismi",
+  "words": [
+   {
+    "kr": "사람의 입김",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "ta'siri katta",
+    "exKr": "결정 과정에 정치권의 *입김*이 작용했다.",
+    "exUz": "Qarorga siyosiy doiralarning ta'siri katta bo'ldi."
+   },
+   {
+    "kr": "거품이 빠지다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "sun'iy oshish yo'qolmoq",
+    "exKr": "부동산 시장의 *거품이 빠지기* 시작했다.",
+    "exUz": "Ko'chmas mulk bozoridagi sun'iy oshish yo'qola boshladi."
+   },
+   {
+    "kr": "기지개",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "cho'zilmoq, qayta faollashmoq",
+    "exKr": "봄을 맞아 산업이 다시 *기지개*를 켜고 있다.",
+    "exUz": "Bahor bilan sanoat qayta faollasha boshladi."
+   },
+   {
+    "kr": "꼬리를 물다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "ketma-ket davom etmoq",
+    "exKr": "관련 의혹이 *꼬리를 물고* 이어졌다.",
+    "exUz": "Tegishli shubhalar ketma-ket davom etdi."
+   },
+   {
+    "kr": "나이는 숫자에 불과",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "aql boshda (yosh muhim emas)",
+    "exKr": "*나이는 숫자에 불과*하다는 걸 그가 증명했다.",
+    "exUz": "U yosh shunchaki raqam ekanini isbotladi."
+   },
+   {
+    "kr": "눈 깜짝할 새",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "qisqa vaqtda",
+    "exKr": "표가 *눈 깜짝할 새* 매진되었다.",
+    "exUz": "Chiptalar juda qisqa vaqtda sotilib bo'ldi."
+   },
+   {
+    "kr": "눈높이를 낮추다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "talabni pasaytirmoq",
+    "exKr": "구직자들이 *눈높이를 낮추기* 시작했다.",
+    "exUz": "Ish izlovchilar talabni pasaytira boshladi."
+   },
+   {
+    "kr": "다시 뜨다 / 다시 태어나다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "qayta mashhur bo'lmoq / yangilanmoq",
+    "exKr": "오래된 노래가 *다시 뜨고* 있다.",
+    "exUz": "Eski qo'shiq qayta mashhur bo'lmoqda."
+   },
+   {
+    "kr": "때 아니다 / 때 이르다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "vaqti emas / hali erta",
+    "exKr": "아직 축하하기엔 *때 이르다*.",
+    "exUz": "Tabriklash uchun hali erta."
+   },
+   {
+    "kr": "머리를 맞대다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "maslahatlashmoq",
+    "exKr": "전문가들이 *머리를 맞대고* 해법을 논의했다.",
+    "exUz": "Mutaxassislar bosh qo'shib yechim muhokama qildi."
+   },
+   {
+    "kr": "목소리가 높다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "talab/fikr kuchli bo'lmoq",
+    "exKr": "개혁을 요구하는 *목소리가 높다*.",
+    "exUz": "Islohot talab qiluvchi ovozlar kuchli."
+   },
+   {
+    "kr": "몸살 앓다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "qiyinchilikka duch kelmoq",
+    "exKr": "관광지가 쓰레기 문제로 *몸살을 앓고* 있다.",
+    "exUz": "Sayyohlik joyi axlat muammosi tufayli qiynalmoqda."
+   },
+   {
+    "kr": "몸이/마음이 가뿐하다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "yengil tortmoq",
+    "exKr": "시험이 끝나니 마음이 *가뿐하다*.",
+    "exUz": "Imtihon tugagach, ko'ngil yengil tortdi."
+   },
+   {
+    "kr": "물 만나다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "o'z muhitini topmoq",
+    "exKr": "그는 새 직장에서 *물 만난* 듯 활약했다.",
+    "exUz": "U yangi ish joyida o'z muhitini topgandek faol ishladi."
+   },
+   {
+    "kr": "박차를 가하다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "tezroq/kuchliroq harakat qilmoq",
+    "exKr": "정부는 개발에 *박차를 가했다*.",
+    "exUz": "Hukumat rivojlanishni tezlashtirdi."
+   },
+   {
+    "kr": "반응이 뜨겁다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "qiziqish yuqori bo'lmoq",
+    "exKr": "신제품에 대한 소비자 *반응이 뜨겁다*.",
+    "exUz": "Yangi mahsulotga iste'molchilar qiziqishi yuqori."
+   },
+   {
+    "kr": "발 벗고 나서다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "faol kirishmoq",
+    "exKr": "주민들이 환경 보호에 *발 벗고 나섰다*.",
+    "exUz": "Aholi atrof-muhitni himoya qilishga faol kirishdi."
+   }
+  ]
+ },
+ {
+  "title": "Idiomalar II",
+  "titleUz": "Majoziy iboralar — B qismi",
+  "words": [
+   {
+    "kr": "발걸음이 가볍다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "kayfiyati yaxshi bo'lmoq",
+    "exKr": "월급날에는 *발걸음이 가볍다*.",
+    "exUz": "Maosh kunida kayfiyat yaxshi bo'ladi."
+   },
+   {
+    "kr": "발이 묶이다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "harakat qila olmaslik",
+    "exKr": "폭설로 차량들의 *발이 묶였다*.",
+    "exUz": "Kuchli qor tufayli mashinalar harakatlana olmay qoldi."
+   },
+   {
+    "kr": "봄바람",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "ijobiy o'zgarish ishorasi",
+    "exKr": "경제에 모처럼 *봄바람*이 불고 있다.",
+    "exUz": "Iqtisodiyotga uzoq vaqtdan keyin ijobiy shabada esmoqda."
+   },
+   {
+    "kr": "봇물 터지다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "birdaniga ko'payib ketmoq",
+    "exKr": "불만이 *봇물 터지듯* 쏟아졌다.",
+    "exUz": "Norozilik birdaniga to'lib-toshib chiqdi."
+   },
+   {
+    "kr": "불 붙다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "raqobat/qiziqish ortmoq",
+    "exKr": "두 후보의 경쟁에 *불이 붙었다*.",
+    "exUz": "Ikki nomzod o'rtasidagi raqobat avj oldi."
+   },
+   {
+    "kr": "빨간불 / 파란불",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "salbiy signal / ijobiy signal",
+    "exKr": "경제 지표에 *빨간불*이 켜졌다.",
+    "exUz": "Iqtisodiy ko'rsatkichlarda salbiy signal yondi."
+   },
+   {
+    "kr": "뿔(이) 나다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "jahli chiqmoq",
+    "exKr": "소비자들이 가격 인상에 *뿔이 났다*.",
+    "exUz": "Iste'molchilarning narx oshishidan jahli chiqdi."
+   },
+   {
+    "kr": "새바람 / 손 잡다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "yangi muhit / hamkorlik qilmoq",
+    "exKr": "두 회사가 *손을 잡았다*.",
+    "exUz": "Ikki kompaniya hamkorlik qildi."
+   },
+   {
+    "kr": "쓴소리",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "tanqid",
+    "exKr": "전문가들이 정부에 *쓴소리*를 쏟아냈다.",
+    "exUz": "Mutaxassislar hukumatga tanqid yog'dirdi."
+   },
+   {
+    "kr": "얼어붙다 / 한겨울",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "sovib qolmoq / og'ir paytlar",
+    "exKr": "투자 시장이 *얼어붙었다*.",
+    "exUz": "Investitsiya bozori sovib qoldi."
+   },
+   {
+    "kr": "의견이 엇갈리다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "fikrlar to'g'ri kelmasligi",
+    "exKr": "정책에 대한 *의견이 엇갈리고* 있다.",
+    "exUz": "Siyosat haqida fikrlar mos kelmayapti."
+   },
+   {
+    "kr": "의지 불태우다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "kuchli ishtiyoq ko'rsatmoq",
+    "exKr": "선수들이 우승 *의지를 불태우고* 있다.",
+    "exUz": "Sportchilar g'alaba uchun kuchli ishtiyoq ko'rsatmoqda."
+   },
+   {
+    "kr": "이제 그만 / 자연의 품으로",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "endi bas / tabiat qo'yniga",
+    "exKr": "사람들은 *자연의 품으로* 돌아가고 싶어한다.",
+    "exUz": "Odamlar tabiat qo'yniga qaytishni xohlaydi."
+   },
+   {
+    "kr": "젊은 옷 / 제자리걸음",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "yangilanish / o'z joyida qolib ketish",
+    "exKr": "협상이 몇 달째 *제자리걸음*이다.",
+    "exUz": "Muzokara bir necha oydan beri o'z joyida turibdi."
+   },
+   {
+    "kr": "줄 잇다 / 줄줄이",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "davom etmoq / birin-ketin",
+    "exKr": "신청자들의 발길이 *줄을 이었다*.",
+    "exUz": "Arizachilar oqimi davom etdi."
+   },
+   {
+    "kr": "즐거운 비명 / 지옥철",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "quvonchdan qichqiriq / juda gavjum metro",
+    "exKr": "매진 행렬에 *즐거운 비명*을 질렀다.",
+    "exUz": "Chiptalar tugashi tufayli quvonchdan qichqirdi."
+   },
+   {
+    "kr": "징검다리",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "bog'lovchi vosita",
+    "exKr": "두 나라 관계의 *징검다리* 역할을 했다.",
+    "exUz": "Ikki davlat munosabatining bog'lovchisi vazifasini bajardi."
+   },
+   {
+    "kr": "찬물 / 찬밥",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "hafsalani pir qiluvchi / e'tiborsiz qoldirilgan",
+    "exKr": "갑작스러운 발표가 분위기에 *찬물*을 끼얹었다.",
+    "exUz": "To'satdan e'lon kayfiyatga sovuq suv sepdi."
+   },
+   {
+    "kr": "첫 삽 / 초읽기",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "ishning boshi / oz qoldi",
+    "exKr": "신공항 건설이 *첫 삽*을 떴다.",
+    "exUz": "Yangi aeroport qurilishi boshlandi."
+   },
+   {
+    "kr": "코앞 / 피부에 와 닿다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "juda yaqin / yaqin his qilish",
+    "exKr": "시험이 *코앞*으로 다가왔다.",
+    "exUz": "Imtihon juda yaqinlashib qoldi."
+   },
+   {
+    "kr": "하늘의 별따기",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "juda qiyin",
+    "exKr": "요즘 취업은 *하늘의 별따기*다.",
+    "exUz": "Bugungi kunda ish topish osmondan yulduz uzishdek qiyin."
+   },
+   {
+    "kr": "한숨 / 한풀 꺾이다",
+    "pos": "Ibora",
+    "posClass": "idiom",
+    "uz": "xo'rsinish / kuch kamayishi",
+    "exKr": "폭염의 기세가 *한풀 꺾였다*.",
+    "exUz": "Shiddatli issiqning kuchi biroz kamaydi."
+   }
+  ]
+ }
+]
