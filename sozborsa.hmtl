@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>SOZBORSA — KR/UZ Word Exchange</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:#0A0D12;}
+.kru { --ink:#0A0D12; --panel:#12161D; --panel2:#181D26; --line:#262C36;
+  --amber:#F2A93B; --mint:#3DDC97; --coral:#FF5C5C; --paper:#ECE7DA; --mute:#7C8593;
+  background:var(--ink); color:var(--paper); min-height:100vh;
+  font-family:'Manrope',sans-serif; -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column; max-width:480px; margin:0 auto; position:relative;
+  border-left:1px solid var(--line); border-right:1px solid var(--line);
+}
+.mono { font-family:'JetBrains Mono',monospace; }
+.disp { font-family:'Black Han Sans',sans-serif; }
+
+.ticker-wrap{ overflow:hidden; background:#000; border-bottom:1px solid var(--line); white-space:nowrap; }
+.ticker-track{ display:inline-flex; animation: ticker-scroll 38s linear infinite; }
+@keyframes ticker-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+.ticker-item{ display:inline-flex; align-items:center; gap:6px; padding:6px 16px; font-size:11px; }
+.ticker-item .k{ font-family:'JetBrains Mono',monospace; font-weight:600; color:#fff; }
+.up{ color:var(--mint); }
+.down{ color:var(--coral); }
+
+.head{ padding:18px 16px 14px; border-bottom:1px solid var(--line);
+  background:radial-gradient(circle at 100% 0%, rgba(242,169,59,0.10), transparent 55%); }
+.head-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+.logo{ font-size:30px; letter-spacing:0.5px; color:var(--paper); line-height:1; }
+.logo .slash{ color:var(--amber); }
+.tagline{ font-size:10.5px; letter-spacing:2.5px; text-transform:uppercase; color:var(--mute); margin-top:5px; }
+.index-box{ text-align:right; }
+.index-label{ font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--mute); }
+.index-val{ font-size:19px; font-weight:700; margin-top:2px; }
+.index-delta{ font-size:11px; display:flex; align-items:center; gap:3px; justify-content:flex-end; margin-top:2px;}
+
+.nav{ display:flex; border-bottom:1px solid var(--line); background:var(--panel);
+  position:sticky; top:0; z-index:20; }
+.nav button{ flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;
+  padding:10px 4px 9px; background:none; border:none; color:var(--mute); font-size:10px;
+  letter-spacing:0.5px; cursor:pointer; border-bottom:2px solid transparent; font-family:'Manrope',sans-serif; font-weight:600;}
+.nav button.active{ color:var(--amber); border-bottom-color:var(--amber); }
+.nav button .ic{ font-size:15px; }
+
+.body{ flex:1; padding:14px 14px 28px; }
+
+.searchbar{ display:flex; align-items:center; gap:8px; background:var(--panel);
+  border:1px solid var(--line); border-radius:8px; padding:9px 12px; margin-bottom:10px; }
+.searchbar input{ background:none; border:none; outline:none; color:var(--paper);
+  font-family:'JetBrains Mono',monospace; font-size:13px; width:100%; }
+.searchbar input::placeholder{ color:var(--mute); }
+.chiprow{ display:flex; gap:6px; overflow-x:auto; padding-bottom:8px; margin-bottom:6px; }
+.chip{ flex-shrink:0; font-size:11px; font-weight:600; padding:5px 11px; border-radius:20px;
+  border:1px solid var(--line); color:var(--mute); background:var(--panel); cursor:pointer; white-space:nowrap; }
+.chip.active{ background:var(--amber); color:#1A1304; border-color:var(--amber); }
+
+.row{ background:var(--panel); border:1px solid var(--line); border-radius:9px; margin-bottom:8px; overflow:hidden; }
+.row-main{ display:flex; align-items:center; gap:10px; padding:11px 12px; cursor:pointer; }
+.row-main .kw{ font-size:17px; font-weight:700; color:var(--paper); }
+.row-tag{ font-size:8.5px; font-weight:700; padding:2px 6px; border-radius:4px; letter-spacing:0.5px; }
+.row-spacer{ flex:1; }
+.row-delta{ font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; display:flex; align-items:center; gap:2px; }
+.row-detail{ padding:0 12px 13px; border-top:1px solid var(--line); }
+.row-uz{ font-size:13px; color:var(--amber); font-weight:600; margin:9px 0 8px; }
+.row-ex{ font-size:12px; line-height:1.55; color:var(--paper); margin-bottom:5px; }
+.row-ex .hl{ color:var(--amber); font-weight:700; }
+.row-ex-uz{ font-size:11.5px; color:var(--mute); font-style:italic; }
+.row-star-btn{ background:none; border:none; cursor:pointer; padding:4px; color:var(--mute); font-size:16px; }
+.row-star-btn.starred{ color:var(--amber); }
+.chev{ display:inline-block; transition:transform .2s; color:var(--mute); }
+.chev.open{ transform:rotate(180deg); }
+
+.empty{ text-align:center; padding:40px 16px; color:var(--mute); font-size:13px; }
+
+.deck-progress{ font-size:11px; color:var(--mute); margin-bottom:10px; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; }
+.card-scene{ perspective:1200px; height:280px; margin-bottom:14px; }
+.flip-card{ width:100%; height:100%; position:relative; transform-style:preserve-3d;
+  transition:transform 0.5s cubic-bezier(.4,.2,.2,1); cursor:pointer; }
+.flip-card.flipped{ transform:rotateY(180deg); }
+.face{ position:absolute; inset:0; backface-visibility:hidden; border-radius:14px;
+  border:1px solid var(--line); padding:22px; display:flex; flex-direction:column; }
+.face.front{ background:linear-gradient(155deg, var(--panel2), var(--panel)); align-items:center; justify-content:center; text-align:center; }
+.face.back{ background:var(--panel2); transform:rotateY(180deg); justify-content:flex-start; }
+.face-type{ font-size:9px; letter-spacing:1.5px; padding:3px 9px; border-radius:10px; margin-bottom:14px; font-weight:700; display:inline-block;}
+.face-kw{ font-size:34px; font-weight:800; color:var(--paper); margin-bottom:8px; }
+.face-hint{ font-size:10.5px; color:var(--mute); letter-spacing:1px; text-transform:uppercase; margin-top:18px; }
+.face-uz{ font-size:18px; font-weight:700; color:var(--amber); margin-bottom:14px; }
+.face-ex{ font-size:12.5px; line-height:1.6; color:var(--paper); margin-bottom:6px; }
+.face-ex .hl{ color:var(--amber); font-weight:700; }
+.face-exuz{ font-size:11.5px; color:var(--mute); font-style:italic; }
+.deck-actions{ display:flex; gap:10px; }
+.deck-btn{ flex:1; padding:13px; border-radius:10px; border:1px solid var(--line); font-weight:700;
+  font-size:13px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; }
+.deck-btn.no{ background:rgba(255,92,92,0.1); color:var(--coral); border-color:rgba(255,92,92,0.3); }
+.deck-btn.yes{ background:rgba(61,220,151,0.1); color:var(--mint); border-color:rgba(61,220,151,0.3); }
+.deck-tools{ display:flex; justify-content:center; gap:18px; margin-top:14px; }
+.deck-tools button{ background:none; border:none; color:var(--mute); display:flex; align-items:center; gap:5px; font-size:11.5px; cursor:pointer; }
+
+.quiz-setup{ background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px; }
+.quiz-setup h3{ font-size:15px; margin:0 0 4px; }
+.quiz-setup p{ font-size:12px; color:var(--mute); margin:0 0 14px; }
+.setup-label{ font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:var(--mute); margin:14px 0 7px; }
+.start-btn{ width:100%; margin-top:18px; background:var(--amber); color:#1A1304; border:none;
+  padding:13px; border-radius:10px; font-weight:800; font-size:14px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:7px; }
+.quiz-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; gap:10px;}
+.quiz-progress-bar{ height:4px; background:var(--line); border-radius:3px; overflow:hidden; flex:1; }
+.quiz-progress-fill{ height:100%; background:var(--amber); transition:width 0.3s; }
+.quiz-score{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px; }
+.quiz-q{ text-align:center; padding:22px 10px 26px; }
+.quiz-q-label{ font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--mute); margin-bottom:10px; }
+.quiz-q-word{ font-size:36px; font-weight:800; }
+.quiz-options{ display:flex; flex-direction:column; gap:9px; }
+.opt-btn{ text-align:left; padding:13px 14px; border-radius:9px; border:1px solid var(--line);
+  background:var(--panel); color:var(--paper); font-size:13px; cursor:pointer; font-family:'Manrope',sans-serif; width:100%; }
+.opt-btn.correct{ background:rgba(61,220,151,0.14); border-color:var(--mint); color:var(--mint); font-weight:700; }
+.opt-btn.wrong{ background:rgba(255,92,92,0.14); border-color:var(--coral); color:var(--coral); font-weight:700; }
+.next-btn{ width:100%; margin-top:14px; background:var(--panel2); border:1px solid var(--line);
+  color:var(--paper); padding:12px; border-radius:9px; font-weight:700; cursor:pointer; }
+.quiz-summary{ text-align:center; padding:30px 14px; }
+.quiz-summary .big{ font-size:46px; font-weight:800; color:var(--amber); }
+.quiz-summary .sub{ font-size:12.5px; color:var(--mute); margin-top:4px; margin-bottom:22px; }
+
+.stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px; }
+.stat-box{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px; }
+.stat-box .v{ font-size:21px; font-weight:800; font-family:'JetBrains Mono',monospace; }
+.stat-box .l{ font-size:10px; color:var(--mute); letter-spacing:0.5px; text-transform:uppercase; margin-top:2px; }
+.chart-box{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 8px 6px; margin-bottom:16px; }
+.chart-title{ font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--mute); padding:0 8px 8px; }
+.watch-title{ font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--mute); margin-bottom:8px; }
+.footer-credit{ text-align:center; font-size:9.5px; letter-spacing:1.5px; color:var(--line); padding:14px 0 6px; text-transform:uppercase; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const RAW = {"chapters":[{"n":"I.","ti":"Mashhurlik","s":"Mashhurlik va e'tibor mavzusidagi so'zlar"},{"n":"II.","ti":"Odamlar","s":"Olomon va jamoatchilik holatini ifodalovchi so'zlar"},{"n":"III.","ti":"O'sish va Ko'tarilish","s":"Statistik tendensiya va o'zgarish so'zlari"},{"n":"IV.","ti":"Iqtisodiyot","s":"Bozor, narx va savdo terminologiyasi"},{"n":"V.","ti":"Ko'chmas Mulk va Davlat","s":"Uy-joy, boshqaruv va rasmiy terminologiya"},{"n":"VI.","ti":"Holat va Baho","s":"Baholash va favqulodda holat terminologiyasi"},{"n":"VII.","ti":"Sport va Raqobat","s":"Musobaqa, strategiya va g'alaba so'zlari"},{"n":"VIII.","ti":"Madaniyat va Jumboq","s":"Kino, jamiyat va muzokara so'zlari"},{"n":"IX.","ti":"TOPIK II Fe'llar","s":"25–27-savol turidagi yuqori chastotali fe'llar"},{"n":"X.","ti":"Ravishlar va Tasvirlar","s":"Onomatopoeya va majoziy holat ravishlari"},{"n":"XI.","ti":"Idiomalar I","s":"Majoziy iboralar — A qismi"},{"n":"XII.","ti":"Idiomalar II","s":"Majoziy iboralar — B qismi"}],"words":[{"k":"열풍","t":"Ot","u":"shiddatli moda, hayajon to'lqini","ek":"전국적으로 캠핑열풍이 불고 있다.","eu":"Butun mamlakat bo'ylab kemping moda to'lqini esmoqda.","h":"열풍","c":0},{"k":"열기","t":"Ot","u":"hayajon, ishtiyoq","ek":"경기장은 관중들의 뜨거운열기로 가득했다.","eu":"Stadion tomoshabinlarning shiddatli ishtiyoqi bilan to'lib-toshgan edi.","h":"열기","c":0},{"k":"인기를 끌다","t":"Fe'l","u":"mashhur bo'lmoq, e'tibor tortmoq","ek":"이 드라마는 해외에서도 큰인기를 끌고있다.","eu":"Bu serial chet elda ham katta mashhurlik qozonmoqda.","h":"인기를 끌고","c":0},{"k":"인기 폭발","t":"Ot","u":"mashhurlikning portlashi","ek":"신제품이 출시되자마자인기 폭발이었다.","eu":"Yangi mahsulot chiqishi bilanoq mashhurlik portladi.","h":"인기 폭발","c":0},{"k":"각광","t":"Ot","u":"diqqat markazi, prožektor nuri","ek":"친환경 소재가 새롭게각광을 받고 있다.","eu":"Ekologik materiallar yangidan diqqat markazida turibdi.","h":"각광","c":0},{"k":"유명세","t":"Ot","u":"shuhrat (ko'pincha salbiy oqibati bilan)","ek":"그는 갑작스러운유명세를 치르고 있다.","eu":"U to'satdan kelgan shuhratning og'irligini his qilmoqda.","h":"유명세","c":0},{"k":"흥행","t":"Ot","u":"kassa muvaffaqiyati","ek":"그 영화는 개봉 첫 주부터흥행에 성공했다.","eu":"O'sha film namoyish bo'lgan birinchi haftadanoq kassada g'olib chiqdi.","h":"흥행","c":0},{"k":"폭주","t":"Ot","u":"keskin oshib ketish, bostirib kelish","ek":"예매 시작과 동시에 주문이폭주했다.","eu":"Bron boshlanishi bilan buyurtmalar keskin oshib ketdi.","h":"폭주","c":0},{"k":"전성시대","t":"Ot","u":"gullab-yashnagan davr","ek":"1990년대는 가요계의전성시대였다.","eu":"1990-yillar musiqa sanoatining gullab-yashnagan davri edi.","h":"전성시대","c":0},{"k":"성수기","t":"Ot","u":"yuqori mavsum","ek":"여름은 관광업계의성수기이다.","eu":"Yoz — turizm sohasining yuqori mavsumidir.","h":"성수기","c":0},{"k":"사로잡다","t":"Fe'l","u":"o'ziga rom qilmoq, maftun etmoq","ek":"그 배우의 연기는 관객의 마음을사로잡았다.","eu":"O'sha aktyorning o'yini tomoshabinlar qalbini rom etdi.","h":"사로잡았다","c":0},{"k":"시선을 끌다","t":"Fe'l","u":"e'tiborni tortmoq","ek":"독특한 디자인이 사람들의시선을 끌었다.","eu":"Noodatiy dizayn odamlarning e'tiborini tortdi.","h":"시선을 끌었다","c":0},{"k":"인파","t":"Ot","u":"olomon","ek":"광장은 축제를 즐기려는인파로 발 디딜 틈이 없었다.","eu":"Maydon bayramni qiziqayotgan olomondan oyoq qo'yishga joy qolmagandi.","h":"인파","c":1},{"k":"북새통","t":"Ot","u":"gavjum holat, tartibsizlik","ek":"명절 기차역은 그야말로북새통이었다.","eu":"Bayram kunlari temir yo'l bekati haqiqiy gavjum holatda edi.","h":"북새통","c":1},{"k":"성업","t":"Ot","u":"savdo yaxshi yurishi","ek":"그 식당은 십 년째성업중이다.","eu":"O'sha restoran o'n yildan beri savdosi yaxshi yurib kelmoqda.","h":"성업","c":1},{"k":"몰리다","t":"Fe'l","u":"to'planmoq","ek":"할인 행사에 손님들이 한꺼번에몰렸다.","eu":"Chegirma tadbiriga mijozlar bir vaqtning o'zida to'plandi.","h":"몰렸다","c":1},{"k":"몰려들다","t":"Fe'l","u":"oqib kelmoq","ek":"관광객들이 벚꽃 명소로몰려들었다.","eu":"Sayyohlar sakura gullash joyiga oqib kela boshladi.","h":"몰려들었다","c":1},{"k":"넘치다","t":"Fe'l","u":"to'lib ketmoq","ek":"공연장은 열정넘치는팬들로 가득했다.","eu":"Konsert zali ishtiyoqqa to'lib ketgan muxlislar bilan to'la edi.","h":"넘치는","c":1},{"k":"북적대다","t":"Fe'l","u":"gavjum bo'lmoq","ek":"주말 시장은 사람들로북적댄다.","eu":"Dam olish kuni bozor odamlar bilan gavjum bo'ladi.","h":"북적댄다","c":1},{"k":"한산하다","t":"Sifat","u":"odam kam bo'lmoq, sokin bo'lmoq","ek":"평일 낮의 거리는 비교적한산했다.","eu":"Hafta ichi kunduzi ko'cha nisbatan sokin edi.","h":"한산했다","c":1},{"k":"신기록","t":"Ot","u":"yangi rekord","ek":"그 선수는 마라톤에서신기록을 세웠다.","eu":"O'sha sportchi marafonda yangi rekord o'rnatdi.","h":"신기록","c":2},{"k":"역대 최고","t":"Ot","u":"tarixdagi eng yuqori ko'rsatkich","ek":"올해 매출이역대 최고를 기록했다.","eu":"Bu yilgi savdo tarixdagi eng yuqori ko'rsatkichni qayd etdi.","h":"역대 최고","c":2},{"k":"상승 곡선","t":"Ot","u":"o'sish egri chizig'i","ek":"주가는 꾸준한상승 곡선을 그리고 있다.","eu":"Aksiya narxi barqaror o'sish egri chizig'ini chizmoqda.","h":"상승 곡선","c":2},{"k":"오름세","t":"Ot","u":"o'sish tendensiyasi","ek":"최근 부동산 가격이오름세를 보이고 있다.","eu":"So'nggi paytda ko'chmas mulk narxi o'sish tendensiyasini ko'rsatmoqda.","h":"오름세","c":2},{"k":"안정세","t":"Ot","u":"barqaror holat","ek":"물가가 다소안정세로 접어들었다.","eu":"Narxlar nisbatan barqaror holatga kira boshladi.","h":"안정세","c":2},{"k":"돌파","t":"Ot","u":"oshib o'tish, chegarani yorib o'tish","ek":"관객 수가 천만 명을돌파했다.","eu":"Tomoshabinlar soni o'n million kishini oshib o'tdi.","h":"돌파","c":2},{"k":"추월하다","t":"Fe'l","u":"quvib o'tmoq","ek":"신생 기업이 업계 1위를추월했다.","eu":"Yangi kompaniya sohadagi yetakchini quvib o'tdi.","h":"추월했다","c":2},{"k":"전진","t":"Ot","u":"oldinga siljish","ek":"팀은 목표를 향해 한 걸음전진했다.","eu":"Jamoa maqsad sari bir qadam oldinga siljidi.","h":"전진","c":2},{"k":"과잉","t":"Ot","u":"ortiqchalik","ek":"생산과잉으로 가격이 하락했다.","eu":"Ishlab chiqarish ortiqchaligi tufayli narxlar tushib ketdi.","h":"과잉","c":2},{"k":"가파르다","t":"Sifat","u":"keskin (tikka)","ek":"올해 들어 물가 상승세가가파르다.","eu":"Bu yilda narxlar o'sishi keskin tus oldi.","h":"가파르다","c":2},{"k":"들썩이다","t":"Fe'l","u":"tebranmoq, hayajonlanmoq","ek":"신제품 발표에 시장 전체가들썩였다.","eu":"Yangi mahsulot e'lonidan butun bozor hayajonga tushdi.","h":"들썩였다","c":2},{"k":"인상 / 인하","t":"Ot","u":"narx oshishi / narx kamayishi","ek":"정부는 최저임금인상을 발표했다.","eu":"Hukumat eng kam ish haqining oshirilishini e'lon qildi.","h":"인상","c":2},{"k":"급등 / 폭등","t":"Ot","u":"keskin ko'tarilish, narxning portlab oshishi","ek":"유가가 국제 정세 불안으로급등했다.","eu":"Neft narxi xalqaro vaziyat noaniqligi tufayli keskin ko'tarildi.","h":"급등","c":2},{"k":"물가","t":"Ot","u":"buyum narxlari","ek":"최근물가상승으로 서민들이 어려움을 겪고 있다.","eu":"So'nggi paytdagi narx oshishi tufayli oddiy xalq qiyinchilik chekmoqda.","h":"물가","c":3},{"k":"유가","t":"Ot","u":"neft narxi","ek":"유가변동이 물가 전반에 영향을 미친다.","eu":"Neft narxining o'zgarishi umumiy narxlarga ta'sir qiladi.","h":"유가","c":3},{"k":"수요자","t":"Ot","u":"iste'molchi","ek":"수요자의 요구에 맞춰 제품을 개발해야 한다.","eu":"Iste'molchi talabiga mos mahsulot ishlab chiqish kerak.","h":"수요자","c":3},{"k":"공급자","t":"Ot","u":"ta'minlovchi","ek":"공급자와의 협상이 원활하게 진행되었다.","eu":"Ta'minlovchi bilan muzokara muvaffaqiyatli o'tdi.","h":"공급자","c":3},{"k":"출하량","t":"Ot","u":"ishlab chiqarish/yetkazib berish hajmi","ek":"반도체출하량이 전년 대비 증가했다.","eu":"Yarimo'tkazgich yetkazib berish hajmi o'tgan yilga nisbatan oshdi.","h":"출하량","c":3},{"k":"후불제 / 선불제","t":"Ot","u":"keyin to'lash / oldindan to'lov","ek":"이 서비스는후불제로 운영된다.","eu":"Bu xizmat keyin to'lash tizimi asosida ishlaydi.","h":"후불제","c":3},{"k":"웃다 / 울상","t":"Ibora","u":"foyda qilyapti / ishi yurmayapti","ek":"수출 기업들은웃고내수 기업들은울상을 짓고 있다.","eu":"Eksport kompaniyalari foyda qilmoqda, ichki bozor kompaniyalari esa ishi yurishmayapti.","h":"웃고","c":3},{"k":"부동산","t":"Ot","u":"rieltorlik, ko'chmas mulk","ek":"부동산시장이 다시 활기를 띠고 있다.","eu":"Ko'chmas mulk bozori yana jonlanmoqda.","h":"부동산","c":3},{"k":"분양","t":"Ot","u":"yangi uy (sotuvi)","ek":"신규 아파트분양이 시작되었다.","eu":"Yangi turar-joy uylarining sotuvi boshlandi.","h":"분양","c":4},{"k":"매매","t":"Ot","u":"oldi-sotdi","ek":"아파트매매가격이 소폭 상승했다.","eu":"Kvartiralar oldi-sotdi narxi sal-pal oshdi.","h":"매매","c":4},{"k":"전세","t":"Ot","u":"katta depozit asosidagi ijara","ek":"전세보증금이 너무 올라 부담스럽다.","eu":"Ijara depoziti juda oshib ketgani og'irlik qilmoqda.","h":"전세","c":4},{"k":"연일","t":"Ravish","u":"ketma-ket kunlar davomida","ek":"연일폭염이 계속되고 있다.","eu":"Ketma-ket kunlar davomida shiddatli issiq davom etmoqda.","h":"연일","c":4},{"k":"안녕","t":"Ot","u":"xayr, tugash, tinchlik","ek":"긴 협상에 마침내안녕을 고했다.","eu":"Uzoq davom etgan muzokaraga nihoyat xayr aytildi.","h":"안녕","c":4},{"k":"기습","t":"Ot","u":"to'satdan hujum/qaror","ek":"정부가기습발표를 내놓았다.","eu":"Hukumat to'satdan e'lon qildi.","h":"기습","c":4},{"k":"환영","t":"Ot","u":"ijobiy kutib olish","ek":"새 정책이 시민들의환영을 받았다.","eu":"Yangi siyosat fuqarolar tomonidan ijobiy kutib olindi.","h":"환영","c":4},{"k":"부처","t":"Ot","u":"vazirlik","ek":"관련부처가 합동 대책을 마련했다.","eu":"Tegishli vazirlik birgalikda chora-tadbirlar ishlab chiqdi.","h":"부처","c":4},{"k":"천차만별","t":"Ibora","u":"xilma-xil, har xil","ek":"지역별로 집값은천차만별이다.","eu":"Hududlarga qarab uy narxi har xil bo'ladi.","h":"천차만별","c":4},{"k":"지킴이 / 도움이","t":"Ot","u":"himoyachi / yordamchi","ek":"자원봉사자들이 마을의지킴이역할을 한다.","eu":"Ko'ngillilar qishloqning himoyachisi vazifasini bajaradi.","h":"지킴이","c":4},{"k":"만점","t":"Ot","u":"eng yuqori baho","ek":"새 식당은 손님들에게만점을 받았다.","eu":"Yangi restoran mijozlardan eng yuqori bahoni oldi.","h":"만점","c":5},{"k":"전쟁","t":"Ot","u":"raqobat, kurash (majoziy)","ek":"기업들의 가격전쟁이 치열하다.","eu":"Kompaniyalar o'rtasidagi narx kurashi keskin.","h":"전쟁","c":5},{"k":"해결사","t":"Ot","u":"hal qiluvchi shaxs","ek":"그는 위기 상황의해결사로 불린다.","eu":"U inqirozli vaziyatlarning hal qiluvchisi deb ataladi.","h":"해결사","c":5},{"k":"이색 행사","t":"Ot","u":"noodatiy tadbir","ek":"올해 축제는이색 행사로 가득했다.","eu":"Bu yilgi bayram noodatiy tadbirlarga boy edi.","h":"이색 행사","c":5},{"k":"만발","t":"Ot","u":"gullab-yashnagan, xilma-xillik","ek":"공원에는 봄꽃이만발했다.","eu":"Bog'da bahor gullari gullab-yashnagan edi.","h":"만발","c":5},{"k":"이상 무","t":"Ibora","u":"muammosi yo'q","ek":"점검 결과 시설에이상 무로 확인되었다.","eu":"Tekshiruv natijasida inshootda muammo yo'qligi aniqlandi.","h":"이상 무","c":5},{"k":"비상","t":"Ot","u":"favqulodda holat","ek":"정부는비상대책 회의를 소집했다.","eu":"Hukumat favqulodda chora-tadbirlar bo'yicha majlis chaqirdi.","h":"비상","c":5},{"k":"정상화","t":"Ot","u":"normallashuv","ek":"교통 상황이 점차정상화되고 있다.","eu":"Transport vaziyati asta-sekin normallashmoqda.","h":"정상화","c":5},{"k":"금물","t":"Ot","u":"qat'iy taqiqlangan narsa","ek":"방심은금물이다.","eu":"Hushyorlikni yo'qotish qat'iy taqiqlanadi.","h":"금물","c":5},{"k":"탈바꿈","t":"Ot","u":"yangicha o'zgarish (바꾸다)","ek":"낡은 건물이 미술관으로탈바꿈했다.","eu":"Eski bino badiiy galereyaga aylantirildi.","h":"탈바꿈","c":5},{"k":"기미","t":"Ot","u":"alomat, bashorat qilinadigan belgi","ek":"경기가 회복될기미를 보이고 있다.","eu":"Iqtisodiyot tiklanish alomatini ko'rsatmoqda.","h":"기미","c":5},{"k":"비명 / 충동","t":"Ot","u":"qichqiriq / bir lahzalik istak","ek":"세일 소식에 구매충동을 느꼈다.","eu":"Chegirma xabaridan xarid qilish istagi paydo bo'ldi.","h":"충동","c":5},{"k":"수비 / 공격","t":"Ot","u":"himoya / hujum","ek":"팀은수비보다공격에 집중했다.","eu":"Jamoa himoyadan ko'ra hujumga ko'proq e'tibor qaratdi.","h":"수비","c":6},{"k":"전략","t":"Ot","u":"strategiya","ek":"감독은 새로운전략을 도입했다.","eu":"Murabbiy yangi strategiyani joriy qildi.","h":"전략","c":6},{"k":"압도적","t":"Sifat","u":"ustun, hal qiluvchi darajada katta","ek":"한국 팀이압도적인 차이로 승리했다.","eu":"Koreya jamoasi ustunlik bilan g'alaba qozondi.","h":"압도적","c":6},{"k":"승리 / 패배","t":"Ot","u":"g'alaba / mag'lubiyat","ek":"접전 끝에 값진승리를 거두었다.","eu":"Keskin kurashdan so'ng qimmatli g'alabaga erishildi.","h":"승리","c":6},{"k":"대표팀","t":"Ot","u":"terma jamoa","ek":"국가대표팀이 결승에 진출했다.","eu":"Milliy terma jamoa final bosqichiga chiqdi.","h":"대표팀","c":6},{"k":"감독","t":"Ot","u":"murabbiy, rejissyor","ek":"새감독이 팀의 분위기를 바꿔 놓았다.","eu":"Yangi murabbiy jamoa muhitini o'zgartirib yubordi.","h":"감독","c":6},{"k":"성과","t":"Ot","u":"natija, yutuq","ek":"꾸준한 노력 끝에 좋은성과를 거두었다.","eu":"Doimiy harakatdan so'ng yaxshi natijaga erishildi.","h":"성과","c":6},{"k":"별들의 전쟁","t":"Ibora","u":"yulduzlar raqobati (masalan, Ronaldo va Messi)","ek":"이번 결승전은 그야말로별들의 전쟁이었다.","eu":"Bu finalning o'zi haqiqiy yulduzlar raqobati edi.","h":"별들의 전쟁","c":6},{"k":"물음표","t":"Ot","u":"savol belgisi","ek":"정책의 효과에 대해물음표가 붙는다.","eu":"Siyosatning samaradorligi haqida savol belgisi qolmoqda.","h":"물음표","c":7},{"k":"극장가","t":"Ot","u":"kinoteatrlar hududi","ek":"여름극장가는 대작들로 붐빈다.","eu":"Yozgi kinoteatrlar hududi katta loyihalardan gavjum.","h":"극장가","c":7},{"k":"예매율","t":"Ot","u":"bron qilish foizi","ek":"신작 영화의예매율이 1위를 차지했다.","eu":"Yangi filmning bron qilish foizi birinchi o'rinni egalladi.","h":"예매율","c":7},{"k":"노화","t":"Ot","u":"qarish","ek":"규칙적인 운동은노화를 늦춘다.","eu":"Muntazam jismoniy mashqlar qarishni sekinlashtiradi.","h":"노화","c":7},{"k":"수수께끼","t":"Ot","u":"jumboq, masala","ek":"사건의 진실은 여전히수수께끼로 남아 있다.","eu":"Voqeaning haqiqati hanuzgacha jumboq bo'lib qolmoqda.","h":"수수께끼","c":7},{"k":"회수율","t":"Ot","u":"qaytish foizi","ek":"대출회수율이 작년보다 낮아졌다.","eu":"Kredit qaytish foizi o'tgan yilga qaraganda pasaydi.","h":"회수율","c":7},{"k":"존폐","t":"Ot","u":"mavjud bo'lish yoki tugatilish","ek":"제도의존폐여부를 두고 논쟁이 계속된다.","eu":"Tizimning saqlanishi yoki bekor qilinishi haqida bahs davom etmoqda.","h":"존폐","c":7},{"k":"회담 / 성사","t":"Ot","u":"muzokara / amalga oshish","ek":"정상회담이 마침내성사되었다.","eu":"Davlat boshliqlari muzokarasi nihoyat amalga oshdi.","h":"회담","c":7},{"k":"단속하다","t":"Fe'l","u":"nazorat qilmoq","ek":"경찰이 불법 주차를단속하고있다.","eu":"Politsiya noqonuniy to'xtab turishni nazorat qilmoqda.","h":"단속하고","c":8},{"k":"강화하다","t":"Fe'l","u":"kuchaytirmoq","ek":"보안 체계를 한층강화했다.","eu":"Xavfsizlik tizimi yanada kuchaytirildi.","h":"강화했다","c":8},{"k":"결항하다","t":"Fe'l","u":"reys bekor qilinmoq","ek":"폭설로 항공편이 모두결항했다.","eu":"Kuchli qor tufayli barcha reyslar bekor qilindi.","h":"결항했다","c":8},{"k":"조난당하다","t":"Fe'l","u":"falokatga uchramoq","ek":"등산객이 산속에서조난당했다.","eu":"Tog'ga chiquvchi tog'da falokatga uchradi.","h":"조난당했다","c":8},{"k":"구조하다","t":"Fe'l","u":"qutqarmoq","ek":"소방대원이 아이를 무사히구조했다.","eu":"O't o'chiruvchi bolani omon qutqardi.","h":"구조했다","c":8},{"k":"달성하다","t":"Fe'l","u":"erishmoq","ek":"올해 목표 매출을달성했다.","eu":"Bu yilgi savdo maqsadiga erishildi.","h":"달성했다","c":8},{"k":"대우하다","t":"Fe'l","u":"muomala qilmoq","ek":"직원들을 공정하게대우해야한다.","eu":"Xodimlarga adolatli muomala qilish kerak.","h":"대우해야","c":8},{"k":"확산하다","t":"Fe'l","u":"tarqalmoq","ek":"바이러스가 빠르게확산하고있다.","eu":"Virus tezda tarqalmoqda.","h":"확산하고","c":8},{"k":"마비되다","t":"Fe'l","u":"falaj bo'lmoq","ek":"폭우로 교통이 완전히마비되었다.","eu":"Kuchli yomg'ir tufayli transport butunlay falaj bo'ldi.","h":"마비되었다","c":8},{"k":"몰두하다","t":"Fe'l","u":"berilib ketmoq","ek":"그는 연구에 깊이몰두하고있다.","eu":"U tadqiqotga chuqur berilib ketgan.","h":"몰두하고","c":8},{"k":"무산되다","t":"Fe'l","u":"bekor bo'lmoq (취소)","ek":"예산 부족으로 계획이무산되었다.","eu":"Mablag' yetishmasligi sababli reja bekor bo'ldi.","h":"무산되었다","c":8},{"k":"발굴하다","t":"Fe'l","u":"kashf etmoq (발견)","ek":"새로운 인재를발굴했다.","eu":"Yangi iste'dod kashf etildi.","h":"발굴했다","c":8},{"k":"방심하다","t":"Fe'l","u":"hushyorlikni yo'qotmoq","ek":"끝까지방심하지말아야 한다.","eu":"Oxirigacha hushyorlikni yo'qotmaslik kerak.","h":"방심하지","c":8},{"k":"부심하다","t":"Fe'l","u":"yechim topishga urinmoq","ek":"정부는 대책 마련에부심하고있다.","eu":"Hukumat chora topishga urinmoqda.","h":"부심하고","c":8},{"k":"식별하다","t":"Fe'l","u":"ajratib tanimoq","ek":"CCTV로 용의자를식별했다.","eu":"Kuzatuv kamerasi orqali gumonlanuvchi ajratib tanildi.","h":"식별했다","c":8},{"k":"여전하다","t":"Sifat","u":"avvalgidek","ek":"그의 열정은여전하다.","eu":"Uning ishtiyoqi avvalgidek qolmoqda.","h":"여전하다","c":8},{"k":"유입되다","t":"Fe'l","u":"kirib kelmoq","ek":"해외 자본이 대거유입되었다.","eu":"Xorijiy kapital katta miqdorda kirib keldi.","h":"유입되었다","c":8},{"k":"유치하다","t":"Fe'l","u":"jalb qilmoq","ek":"도시는 국제 행사를유치했다.","eu":"Shahar xalqaro tadbirni jalb qildi.","h":"유치했다","c":8},{"k":"절실하다","t":"Sifat","u":"zarur bo'lmoq (필요하다)","ek":"근본적인 해결책이절실하다.","eu":"Tub yechim juda zarur.","h":"절실하다","c":8},{"k":"지연되다","t":"Fe'l","u":"kechikmoq (늦다)","ek":"기상 악화로 출항이지연되었다.","eu":"Ob-havoning yomonlashishi sababli jo'nash kechikdi.","h":"지연되었다","c":8},{"k":"퇴사하다","t":"Fe'l","u":"ishdan bo'shamoq","ek":"그는 십 년 만에퇴사했다.","eu":"U o'n yildan keyin ishdan bo'shadi.","h":"퇴사했다","c":8},{"k":"표류하다","t":"Fe'l","u":"sarson bo'lmoq","ek":"협상이 합의점을 찾지 못한 채표류하고있다.","eu":"Muzokara kelishuvga kelmasdan sarson bo'lib qolmoqda.","h":"표류하고","c":8},{"k":"험난하다","t":"Sifat","u":"mashaqqatli bo'lmoq","ek":"정상까지의 길은험난했다.","eu":"Cho'qqigacha bo'lgan yo'l mashaqqatli edi.","h":"험난했다","c":8},{"k":"글쎄","t":"Ravish","u":"shubhali, noaniq","ek":"글쎄, 좀 더 생각해 봐야겠다.","eu":"Shubhali, biroz o'ylab ko'rishim kerak.","h":"글쎄","c":9},{"k":"껑충","t":"Ravish","u":"birdaniga ko'tarilmoq","ek":"물가가 한 번에껑충뛰었다.","eu":"Narxlar bir vaqtning o'zida birdaniga ko'tarildi.","h":"껑충","c":9},{"k":"동동","t":"Ravish","u":"bezovta bo'lmoq, tipirchilamoq","ek":"버스를 놓칠까 봐 발을동동굴렀다.","eu":"Avtobusga kechikishdan qo'rqib, oyog'ini tipirchilatdi.","h":"동동","c":9},{"k":"두둑","t":"Ravish","u":"mo'l-ko'l, ko'p","ek":"올해는 보너스를두둑하게 받았다.","eu":"Bu yili mo'l-ko'l bonus olindi.","h":"두둑","c":9},{"k":"뚝 / 뚝뚝","t":"Ravish","u":"birdan, shartta / tomchilab","ek":"매출이뚝떨어졌다.","eu":"Savdo birdan tushib ketdi.","h":"뚝","c":9},{"k":"부글부글","t":"Ravish","u":"g'azablanmoq","ek":"속이부글부글끓었다.","eu":"Ichi g'azabdan qaynab ketdi.","h":"부글부글","c":9},{"k":"성큼","t":"Ravish","u":"tez yetib kelish","ek":"여름이성큼다가왔다.","eu":"Yoz tezda yetib keldi.","h":"성큼","c":9},{"k":"속속 / 속출하다","t":"Ravish","u":"ketma-ket, birin-ketin","ek":"신청자가속속늘고 있다.","eu":"Arizachilar soni birin-ketin oshmoqda.","h":"속속","c":9},{"k":"썰렁하다","t":"Sifat","u":"sovuq, sust qiziqish","ek":"행사장 분위기가썰렁했다.","eu":"Tadbir maydonchasi muhiti sust edi.","h":"썰렁했다","c":9},{"k":"쏙쏙 / 쑥쑥","t":"Ravish","u":"osonlik bilan / tez o'smoq","ek":"설명이 머리에쏙쏙들어왔다.","eu":"Tushuntirish osonlik bilan miyaga singdi.","h":"쏙쏙","c":9},{"k":"오락가락","t":"Ravish","u":"o'tga-bo'tga, keldi-ketdi","ek":"정책이오락가락해서 혼란스럽다.","eu":"Siyosat keldi-ketdi bo'lgani uchun chalkash.","h":"오락가락","c":9},{"k":"착착","t":"Ravish","u":"reja bo'yicha","ek":"공사가 계획대로착착진행되고 있다.","eu":"Qurilish reja bo'yicha izchil davom etmoqda.","h":"착착","c":9},{"k":"톡톡","t":"Ravish","u":"samarali, ajralib turish","ek":"신제품이 효과를톡톡히 봤다.","eu":"Yangi mahsulot ajralib turadigan samara berdi.","h":"톡톡","c":9},{"k":"팽팽 / 일제히","t":"Ravish","u":"tarang / bir vaqtda","ek":"두 후보가팽팽한 접전을 벌였다.","eu":"Ikki nomzod tarang kurash olib bordi.","h":"팽팽","c":9},{"k":"홀로 / 활짝 / 훨훨","t":"Ravish","u":"yolg'iz / keng / bemalol","ek":"문이활짝열렸다.","eu":"Eshik keng ochildi.","h":"활짝","c":9},{"k":"사람의 입김","t":"Ibora","u":"ta'siri katta","ek":"결정 과정에 정치권의입김이 작용했다.","eu":"Qarorga siyosiy doiralarning ta'siri katta bo'ldi.","h":"입김","c":10},{"k":"거품이 빠지다","t":"Ibora","u":"sun'iy oshish yo'qolmoq","ek":"부동산 시장의거품이 빠지기시작했다.","eu":"Ko'chmas mulk bozoridagi sun'iy oshish yo'qola boshladi.","h":"거품이 빠지기","c":10},{"k":"기지개","t":"Ibora","u":"cho'zilmoq, qayta faollashmoq","ek":"봄을 맞아 산업이 다시기지개를 켜고 있다.","eu":"Bahor bilan sanoat qayta faollasha boshladi.","h":"기지개","c":10},{"k":"꼬리를 물다","t":"Ibora","u":"ketma-ket davom etmoq","ek":"관련 의혹이꼬리를 물고이어졌다.","eu":"Tegishli shubhalar ketma-ket davom etdi.","h":"꼬리를 물고","c":10},{"k":"나이는 숫자에 불과","t":"Ibora","u":"aql boshda (yosh muhim emas)","ek":"나이는 숫자에 불과하다는 걸 그가 증명했다.","eu":"U yosh shunchaki raqam ekanini isbotladi.","h":"나이는 숫자에 불과","c":10},{"k":"눈 깜짝할 새","t":"Ibora","u":"qisqa vaqtda","ek":"표가눈 깜짝할 새매진되었다.","eu":"Chiptalar juda qisqa vaqtda sotilib bo'ldi.","h":"눈 깜짝할 새","c":10},{"k":"눈높이를 낮추다","t":"Ibora","u":"talabni pasaytirmoq","ek":"구직자들이눈높이를 낮추기시작했다.","eu":"Ish izlovchilar talabni pasaytira boshladi.","h":"눈높이를 낮추기","c":10},{"k":"다시 뜨다 / 다시 태어나다","t":"Ibora","u":"qayta mashhur bo'lmoq / yangilanmoq","ek":"오래된 노래가다시 뜨고있다.","eu":"Eski qo'shiq qayta mashhur bo'lmoqda.","h":"다시 뜨고","c":10},{"k":"때 아니다 / 때 이르다","t":"Ibora","u":"vaqti emas / hali erta","ek":"아직 축하하기엔때 이르다.","eu":"Tabriklash uchun hali erta.","h":"때 이르다","c":10},{"k":"머리를 맞대다","t":"Ibora","u":"maslahatlashmoq","ek":"전문가들이머리를 맞대고해법을 논의했다.","eu":"Mutaxassislar bosh qo'shib yechim muhokama qildi.","h":"머리를 맞대고","c":10},{"k":"목소리가 높다","t":"Ibora","u":"talab/fikr kuchli bo'lmoq","ek":"개혁을 요구하는목소리가 높다.","eu":"Islohot talab qiluvchi ovozlar kuchli.","h":"목소리가 높다","c":10},{"k":"몸살 앓다","t":"Ibora","u":"qiyinchilikka duch kelmoq","ek":"관광지가 쓰레기 문제로몸살을 앓고있다.","eu":"Sayyohlik joyi axlat muammosi tufayli qiynalmoqda.","h":"몸살을 앓고","c":10},{"k":"몸이/마음이 가뿐하다","t":"Ibora","u":"yengil tortmoq","ek":"시험이 끝나니 마음이가뿐하다.","eu":"Imtihon tugagach, ko'ngil yengil tortdi.","h":"가뿐하다","c":10},{"k":"물 만나다","t":"Ibora","u":"o'z muhitini topmoq","ek":"그는 새 직장에서물 만난듯 활약했다.","eu":"U yangi ish joyida o'z muhitini topgandek faol ishladi.","h":"물 만난","c":10},{"k":"박차를 가하다","t":"Ibora","u":"tezroq/kuchliroq harakat qilmoq","ek":"정부는 개발에박차를 가했다.","eu":"Hukumat rivojlanishni tezlashtirdi.","h":"박차를 가했다","c":10},{"k":"반응이 뜨겁다","t":"Ibora","u":"qiziqish yuqori bo'lmoq","ek":"신제품에 대한 소비자반응이 뜨겁다.","eu":"Yangi mahsulotga iste'molchilar qiziqishi yuqori.","h":"반응이 뜨겁다","c":10},{"k":"발 벗고 나서다","t":"Ibora","u":"faol kirishmoq","ek":"주민들이 환경 보호에발 벗고 나섰다.","eu":"Aholi atrof-muhitni himoya qilishga faol kirishdi.","h":"발 벗고 나섰다","c":10},{"k":"발걸음이 가볍다","t":"Ibora","u":"kayfiyati yaxshi bo'lmoq","ek":"월급날에는발걸음이 가볍다.","eu":"Maosh kunida kayfiyat yaxshi bo'ladi.","h":"발걸음이 가볍다","c":11},{"k":"발이 묶이다","t":"Ibora","u":"harakat qila olmaslik","ek":"폭설로 차량들의발이 묶였다.","eu":"Kuchli qor tufayli mashinalar harakatlana olmay qoldi.","h":"발이 묶였다","c":11},{"k":"봄바람","t":"Ibora","u":"ijobiy o'zgarish ishorasi","ek":"경제에 모처럼봄바람이 불고 있다.","eu":"Iqtisodiyotga uzoq vaqtdan keyin ijobiy shabada esmoqda.","h":"봄바람","c":11},{"k":"봇물 터지다","t":"Ibora","u":"birdaniga ko'payib ketmoq","ek":"불만이봇물 터지듯쏟아졌다.","eu":"Norozilik birdaniga to'lib-toshib chiqdi.","h":"봇물 터지듯","c":11},{"k":"불 붙다","t":"Ibora","u":"raqobat/qiziqish ortmoq","ek":"두 후보의 경쟁에불이 붙었다.","eu":"Ikki nomzod o'rtasidagi raqobat avj oldi.","h":"불이 붙었다","c":11},{"k":"빨간불 / 파란불","t":"Ibora","u":"salbiy signal / ijobiy signal","ek":"경제 지표에빨간불이 켜졌다.","eu":"Iqtisodiy ko'rsatkichlarda salbiy signal yondi.","h":"빨간불","c":11},{"k":"뿔(이) 나다","t":"Ibora","u":"jahli chiqmoq","ek":"소비자들이 가격 인상에뿔이 났다.","eu":"Iste'molchilarning narx oshishidan jahli chiqdi.","h":"뿔이 났다","c":11},{"k":"새바람 / 손 잡다","t":"Ibora","u":"yangi muhit / hamkorlik qilmoq","ek":"두 회사가손을 잡았다.","eu":"Ikki kompaniya hamkorlik qildi.","h":"손을 잡았다","c":11},{"k":"쓴소리","t":"Ibora","u":"tanqid","ek":"전문가들이 정부에쓴소리를 쏟아냈다.","eu":"Mutaxassislar hukumatga tanqid yog'dirdi.","h":"쓴소리","c":11},{"k":"얼어붙다 / 한겨울","t":"Ibora","u":"sovib qolmoq / og'ir paytlar","ek":"투자 시장이얼어붙었다.","eu":"Investitsiya bozori sovib qoldi.","h":"얼어붙었다","c":11},{"k":"의견이 엇갈리다","t":"Ibora","u":"fikrlar to'g'ri kelmasligi","ek":"정책에 대한의견이 엇갈리고있다.","eu":"Siyosat haqida fikrlar mos kelmayapti.","h":"의견이 엇갈리고","c":11},{"k":"의지 불태우다","t":"Ibora","u":"kuchli ishtiyoq ko'rsatmoq","ek":"선수들이 우승의지를 불태우고있다.","eu":"Sportchilar g'alaba uchun kuchli ishtiyoq ko'rsatmoqda.","h":"의지를 불태우고","c":11},{"k":"이제 그만 / 자연의 품으로","t":"Ibora","u":"endi bas / tabiat qo'yniga","ek":"사람들은자연의 품으로돌아가고 싶어한다.","eu":"Odamlar tabiat qo'yniga qaytishni xohlaydi.","h":"자연의 품으로","c":11},{"k":"젊은 옷 / 제자리걸음","t":"Ibora","u":"yangilanish / o'z joyida qolib ketish","ek":"협상이 몇 달째제자리걸음이다.","eu":"Muzokara bir necha oydan beri o'z joyida turibdi.","h":"제자리걸음","c":11},{"k":"줄 잇다 / 줄줄이","t":"Ibora","u":"davom etmoq / birin-ketin","ek":"신청자들의 발길이줄을 이었다.","eu":"Arizachilar oqimi davom etdi.","h":"줄을 이었다","c":11},{"k":"즐거운 비명 / 지옥철","t":"Ibora","u":"quvonchdan qichqiriq / juda gavjum metro","ek":"매진 행렬에즐거운 비명을 질렀다.","eu":"Chiptalar tugashi tufayli quvonchdan qichqirdi.","h":"즐거운 비명","c":11},{"k":"징검다리","t":"Ibora","u":"bog'lovchi vosita","ek":"두 나라 관계의징검다리역할을 했다.","eu":"Ikki davlat munosabatining bog'lovchisi vazifasini bajardi.","h":"징검다리","c":11},{"k":"찬물 / 찬밥","t":"Ibora","u":"hafsalani pir qiluvchi / e'tiborsiz qoldirilgan","ek":"갑작스러운 발표가 분위기에찬물을 끼얹었다.","eu":"To'satdan e'lon kayfiyatga sovuq suv sepdi.","h":"찬물","c":11},{"k":"첫 삽 / 초읽기","t":"Ibora","u":"ishning boshi / oz qoldi","ek":"신공항 건설이첫 삽을 떴다.","eu":"Yangi aeroport qurilishi boshlandi.","h":"첫 삽","c":11},{"k":"코앞 / 피부에 와 닿다","t":"Ibora","u":"juda yaqin / yaqin his qilish","ek":"시험이코앞으로 다가왔다.","eu":"Imtihon juda yaqinlashib qoldi.","h":"코앞","c":11},{"k":"하늘의 별따기","t":"Ibora","u":"juda qiyin","ek":"요즘 취업은하늘의 별따기다.","eu":"Bugungi kunda ish topish osmondan yulduz uzishdek qiyin.","h":"하늘의 별따기","c":11},{"k":"한숨 / 한풀 꺾이다","t":"Ibora","u":"xo'rsinish / kuch kamayishi","ek":"폭염의 기세가한풀 꺾였다.","eu":"Shiddatli issiqning kuchi biroz kamaydi.","h":"한풀 꺾였다","c":11}]};
+const CHAPTERS = RAW.chapters;
+const WORDS = RAW.words.map((w,i)=>({...w,id:i}));
+const TYPE_META = {
+  "Ot":{label:"OT",color:"#6FA8DC"},
+  "Fe'l":{label:"FE'L",color:"#C792EA"},
+  "Sifat":{label:"SIFAT",color:"#5FD89A"},
+  "Ravish":{label:"RAVISH",color:"#E0B05A"},
+  "Ibora":{label:"IBORA",color:"#FF8C7A"},
+};
+function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function hashStr(str){ let h=0; for(let i=0;i<str.length;i++) h=(h*31+str.charCodeAt(i))|0; return Math.abs(h); }
+function delta(w){ const h=hashStr(w.k+w.c); const v=(h%480)/10; const sign=h%2===0?1:-1; return {value:v,sign}; }
+function fmtPct(d){ return (d.sign>0?"+":"-")+d.value.toFixed(1)+"%"; }
+function deltaHTML(d,size){ const cls=d.sign>0?"up":"down"; const arrow=d.sign>0?"▲":"▼"; return `<span class="row-delta ${cls}" style="${size?'font-size:'+size+'px':''}">${arrow} ${fmtPct(d)}</span>`; }
+function highlightHTML(ex,hl){
+  if(!hl || !ex.includes(hl)) return esc(ex);
+  const parts = ex.split(hl);
+  return parts.map(esc).join(`<span class="hl">${esc(hl)}</span>`);
+}
+
+const state = {
+  mode:"bozor",
+  search:"", sector:"all", type:"all", openRow:null,
+  starred:new Set(),
+  history:[],
+  fcSector:"all", fcDeck:[], fcIdx:0, fcFlipped:false, fcKnown:0, fcUnknown:0,
+  qStage:"setup", qSector:"all", qCount:10, qQuestions:[], qIdx:0, qScore:0, qSelected:null,
+  searchFocused:false, searchCursor:0,
+};
+
+function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function buildFcDeck(){
+  const pool = state.fcSector==="all" ? WORDS : WORDS.filter(w=>w.c===state.fcSector);
+  state.fcDeck = shuffle(pool);
+  state.fcIdx = 0; state.fcFlipped=false; state.fcKnown=0; state.fcUnknown=0;
+}
+function buildQuiz(){
+  const pool = state.qSector==="all" ? WORDS : WORDS.filter(w=>w.c===state.qSector);
+  const picked = shuffle(pool).slice(0, Math.min(state.qCount, pool.length));
+  state.qQuestions = picked.map(w=>{
+    const distractors = shuffle(WORDS.filter(x=>x.id!==w.id && x.u!==w.u)).slice(0,3);
+    const options = shuffle([...distractors.map(x=>x.u), w.u]);
+    return {w, options, correct:w.u};
+  });
+  state.qIdx=0; state.qScore=0; state.qSelected=null;
+}
+
+function chipRow(items, activeVal, act){
+  return `<div class="chiprow">${items.map(it=>`<div class="chip ${it.val===activeVal?'active':''}" data-act="${act}" data-val="${it.val}">${it.label}</div>`).join('')}</div>`;
+}
+function sectorChips(activeVal, act){
+  const items = [{val:"all",label:"Barcha sektor"}, ...CHAPTERS.map((c,i)=>({val:String(i),label:c.n+" "+c.ti}))];
+  return chipRow(items, activeVal==="all"?"all":String(activeVal), act);
+}
+
+function renderTicker(){
+  const sample=[]; for(let i=0;i<40;i++) sample.push(WORDS[(i*7)%WORDS.length]);
+  const item = w => { const d=delta(w); const cls=d.sign>0?"up":"down"; return `<span class="ticker-item"><span class="k">${esc(w.k)}</span><span class="${cls}">${fmtPct(d)}</span></span>`; };
+  const row = sample.map(item).join('');
+  return `<div class="ticker-wrap"><div class="ticker-track">${row}${row}</div></div>`;
+}
+
+function renderHead(){
+  const idx = (1000 + state.starred.size*4.2 + state.history.length*11.5).toFixed(2);
+  const upv = (state.starred.size*0.4 + state.history.length*1.1).toFixed(1);
+  return `<div class="head">
+    <div class="head-top">
+      <div>
+        <div class="logo disp">KR<span class="slash">/</span>UZ</div>
+        <div class="tagline">SOZBORSA · Birja Indeksi</div>
+      </div>
+      <div class="index-box">
+        <div class="index-label">KRUZX INDEX</div>
+        <div class="index-val mono">${idx}</div>
+        <div class="index-delta up">▲ +${upv}%</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderNav(){
+  const tabs = [["bozor","📈","BOZOR"],["kartalar","🗂️","KARTALAR"],["test","🎯","TEST"],["portfolio","💼","PORTFOLIO"]];
+  return `<div class="nav">${tabs.map(([m,ic,label])=>`<button class="${state.mode===m?'active':''}" data-act="setmode" data-val="${m}"><span class="ic">${ic}</span>${label}</button>`).join('')}</div>`;
+}
+
+function wordRowHTML(w){
+  const meta = TYPE_META[w.t] || {label:w.t,color:"#999"};
+  const d = delta(w);
+  const open = state.openRow===w.id;
+  const starred = state.starred.has(w.id);
+  return `<div class="row">
+    <div class="row-main" data-act="togglerow" data-id="${w.id}">
+      <span class="kw">${esc(w.k)}</span>
+      <span class="row-tag" style="background:${meta.color}26;color:${meta.color}">${meta.label}</span>
+      <span class="row-spacer"></span>
+      ${deltaHTML(d)}
+      <span class="chev ${open?'open':''}">▾</span>
+    </div>
+    ${open ? `<div class="row-detail">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div class="row-uz">${esc(w.u)}</div>
+        <button class="row-star-btn ${starred?'starred':''}" data-act="togglestar" data-id="${w.id}">${starred?'★':'☆'}</button>
+      </div>
+      <div class="row-ex">${highlightHTML(w.ek,w.h)}</div>
+      <div class="row-ex-uz">${esc(w.eu)}</div>
+    </div>` : ''}
+  </div>`;
+}
+
+function renderBozor(){
+  const filtered = WORDS.filter(w=>{
+    if(state.sector!=="all" && w.c!==state.sector) return false;
+    if(state.type!=="all" && w.t!==state.type) return false;
+    if(state.search.trim()){
+      const q=state.search.trim().toLowerCase();
+      if(!w.k.includes(state.search.trim()) && !w.u.toLowerCase().includes(q)) return false;
+    }
+    return true;
+  });
+  const typeItems=[{val:"all",label:"Hammasi"},...Object.keys(TYPE_META).map(t=>({val:t,label:TYPE_META[t].label}))];
+  return `
+    <div class="searchbar">
+      <span>🔍</span>
+      <input id="searchInput" placeholder="qidiruv... (so'z yoki ma'no)" value="${esc(state.search)}">
+    </div>
+    ${sectorChips(state.sector,"setsector")}
+    ${chipRow(typeItems, state.type, "settype")}
+    <div class="mono" style="font-size:11px;color:#7C8593;margin-bottom:8px;">${filtered.length} ta aktiv topildi</div>
+    ${filtered.length===0 ? "<div class='empty'>Hech narsa topilmadi. Filtrlarni o'zgartiring.</div>" : ''}
+    ${filtered.map(wordRowHTML).join('')}
+  `;
+}
+
+function renderKartalar(){
+  if(state.fcDeck.length===0 && WORDS.length>0 && state._fcInit!==state.fcSector){ buildFcDeck(); state._fcInit=state.fcSector; }
+  const w = state.fcDeck[state.fcIdx];
+  const finished = state.fcDeck.length>0 && state.fcIdx>=state.fcDeck.length;
+  let inner = '';
+  if(!finished && w){
+    const meta = TYPE_META[w.t]||{label:w.t,color:"#999"};
+    inner = `
+      <div class="deck-progress">
+        <span>KARTA ${state.fcIdx+1} / ${state.fcDeck.length}</span>
+        <span><span style="color:#3DDC97">✓${state.fcKnown}</span> &nbsp; <span style="color:#FF5C5C">✕${state.fcUnknown}</span></span>
+      </div>
+      <div class="card-scene">
+        <div class="flip-card ${state.fcFlipped?'flipped':''}" data-act="flip">
+          <div class="face front">
+            <div class="face-type" style="background:${meta.color}26;color:${meta.color}">${meta.label}</div>
+            <div class="face-kw">${esc(w.k)}</div>
+            ${deltaHTML(delta(w))}
+            <div class="face-hint">bosib ko'ring ↻</div>
+          </div>
+          <div class="face back">
+            <div class="face-type" style="background:${meta.color}26;color:${meta.color}">${meta.label}</div>
+            <div class="face-uz">${esc(w.u)}</div>
+            <div class="face-ex">${highlightHTML(w.ek,w.h)}</div>
+            <div class="face-exuz">${esc(w.eu)}</div>
+          </div>
+        </div>
+      </div>
+      <div class="deck-actions">
+        <button class="deck-btn no" data-act="fcmark" data-val="0">✕ Bilmadim</button>
+        <button class="deck-btn yes" data-act="fcmark" data-val="1">✓ Bildim</button>
+      </div>
+      <div class="deck-tools"><button data-act="fcshuffle">🔀 Aralashtirish</button></div>
+    `;
+  } else if(finished){
+    inner = `<div class="quiz-summary">
+      <div class="big">${state.fcKnown}/${state.fcDeck.length}</div>
+      <div class="sub">karta o'rganildi · ${state.fcUnknown} ta qaytarish kerak</div>
+      <button class="start-btn" data-act="fcrestart">↻ Qaytadan boshlash</button>
+    </div>`;
+  } else {
+    inner = `<div class="empty">Bu sektorda so'z topilmadi.</div>`;
+  }
+  return `${sectorChips(state.fcSector,"setfcsector")}${inner}`;
+}
+
+function renderTest(){
+  if(state.qStage==="setup"){
+    return `<div class="quiz-setup">
+      <h3>Savdoni boshlash</h3>
+      <p>To'g'ri ma'noni tanlang. Har to'g'ri javob — bitim, har xato — yo'qotish.</p>
+      <div class="setup-label">Sektor</div>
+      ${sectorChips(state.qSector,"setqsector")}
+      <div class="setup-label">Savollar soni</div>
+      ${chipRow([5,10,15,20].map(n=>({val:String(n),label:n+" ta"})), String(state.qCount), "setqcount")}
+      <button class="start-btn" data-act="qstart">▶ Savdoni boshlash</button>
+    </div>`;
+  }
+  if(state.qStage==="quiz"){
+    const q = state.qQuestions[state.qIdx];
+    const pct = Math.round((state.qIdx/state.qQuestions.length)*100);
+    return `<div>
+      <div class="quiz-top">
+        <div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:${pct}%"></div></div>
+        <div class="quiz-score mono" style="color:#3DDC97">+${state.qScore}.0</div>
+      </div>
+      <div class="quiz-q">
+        <div class="quiz-q-label">SAVOL ${state.qIdx+1} / ${state.qQuestions.length} — bu nima ma'noni bildiradi?</div>
+        <div class="quiz-q-word">${esc(q.w.k)}</div>
+      </div>
+      <div class="quiz-options">
+        ${q.options.map(opt=>{
+          let cls="opt-btn";
+          if(state.qSelected){
+            if(opt===q.correct) cls+=" correct";
+            else if(opt===state.qSelected) cls+=" wrong";
+          }
+          return `<button class="${cls}" data-act="qpick" data-val="${esc(opt)}">${esc(opt)}</button>`;
+        }).join('')}
+      </div>
+      ${state.qSelected ? `<button class="next-btn" data-act="qnext">${state.qIdx+1>=state.qQuestions.length?'Yakunlash':'Keyingisi'} →</button>` : ''}
+    </div>`;
+  }
+  const pct = Math.round((state.qScore/state.qQuestions.length)*100);
+  return `<div class="quiz-summary">
+    <div class="big">${pct}%</div>
+    <div class="sub">${state.qScore} / ${state.qQuestions.length} to'g'ri bitim</div>
+    <button class="start-btn" data-act="qrestart">↻ Yangi savdo</button>
+  </div>`;
+}
+
+function sparklineSVG(historyIn){
+  const history = historyIn.length===1 ? [historyIn[0], historyIn[0]] : historyIn;
+  const w=280,h=110,pad=8;
+  const max=100,min=0;
+  const stepX=(w-2*pad)/(history.length-1);
+  const coords = history.map((s,i)=>{
+    const x=pad+i*stepX;
+    const y=pad+(1-(s-min)/(max-min))*(h-2*pad);
+    return [x,y];
+  });
+  const line = coords.map((c,i)=> (i===0?'M':'L')+c[0].toFixed(1)+','+c[1].toFixed(1)).join(' ');
+  const area = line + ` L${coords[coords.length-1][0].toFixed(1)},${h-pad} L${coords[0][0].toFixed(1)},${h-pad} Z`;
+  return `<svg width="100%" height="${h}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3DDC97" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#3DDC97" stop-opacity="0"/>
+    </linearGradient></defs>
+    <path d="${area}" fill="url(#g1)"/>
+    <path d="${line}" fill="none" stroke="#3DDC97" stroke-width="2.5"/>
+  </svg>`;
+}
+
+function renderPortfolio(){
+  const starredWords = WORDS.filter(w=>state.starred.has(w.id));
+  const avg = state.history.length ? Math.round(state.history.reduce((a,b)=>a+b,0)/state.history.length) : null;
+  return `
+    <div class="stat-grid">
+      <div class="stat-box"><div class="v mono" style="color:#F2A93B">${WORDS.length}</div><div class="l">jami aktivlar</div></div>
+      <div class="stat-box"><div class="v mono" style="color:#F2A93B">${starredWords.length}</div><div class="l">kuzatuv ro'yxati</div></div>
+      <div class="stat-box"><div class="v mono" style="color:#3DDC97">${state.history.length}</div><div class="l">amalga oshirilgan savdo</div></div>
+      <div class="stat-box"><div class="v mono" style="color:${avg===null?'#7C8593':'#3DDC97'}">${avg===null?'—':avg+'%'}</div><div class="l">o'rtacha natija</div></div>
+    </div>
+    <div class="chart-box">
+      <div class="chart-title">Savdo tarixi · Test natijalari (%)</div>
+      ${state.history.length===0
+        ? "<div class='empty' style='padding:20px 10px;'>Hali savdo tarixi yo'q.<br>Test bo'limida birinchi bitimingizni amalga oshiring.</div>"
+        : sparklineSVG(state.history)}
+    </div>
+    <div class="watch-title">Kuzatuv ro'yxati (${starredWords.length})</div>
+    ${starredWords.length===0 ? "<div class='empty'>Yulduzcha bosib so'z qo'shing — ular shu yerda jamlanadi.</div>" : ''}
+    ${starredWords.map(wordRowHTML).join('')}
+  `;
+}
+
+function render(){
+  const root = document.getElementById('root');
+  let body = '';
+  if(state.mode==='bozor') body = renderBozor();
+  else if(state.mode==='kartalar') body = renderKartalar();
+  else if(state.mode==='test') body = renderTest();
+  else body = renderPortfolio();
+
+  root.innerHTML = `<div class="kru">
+    ${renderTicker()}
+    ${renderHead()}
+    ${renderNav()}
+    <div class="body">${body}</div>
+    <div class="footer-credit">KR/UZ SOZBORSA · TOPIK II Premium Edition</div>
+  </div>`;
+
+  const inp = document.getElementById('searchInput');
+  if(inp && state.searchFocused){
+    inp.focus();
+    inp.setSelectionRange(state.searchCursor, state.searchCursor);
+    inp.addEventListener('input', e=>{
+      state.search = e.target.value;
+      state.searchCursor = e.target.selectionStart;
+      render();
+    });
+  } else if(inp){
+    inp.addEventListener('focus', ()=>{ state.searchFocused=true; });
+    inp.addEventListener('input', e=>{
+      state.search = e.target.value;
+      state.searchCursor = e.target.selectionStart;
+      state.searchFocused = true;
+      render();
+    });
+  }
+}
+
+document.addEventListener('click', e=>{
+  const el = e.target.closest('[data-act]');
+  if(!el) return;
+  const act = el.dataset.act, id = el.dataset.id, val = el.dataset.val;
+
+  if(act==='setmode'){ state.mode=val; state.openRow=null; }
+  else if(act==='togglerow'){ const wid=Number(id); state.openRow = state.openRow===wid ? null : wid; }
+  else if(act==='togglestar'){ const wid=Number(id); state.starred.has(wid) ? state.starred.delete(wid) : state.starred.add(wid); }
+  else if(act==='setsector'){ state.sector = val==='all'?'all':Number(val); }
+  else if(act==='settype'){ state.type = val; }
+  else if(act==='setfcsector'){ state.fcSector = val==='all'?'all':Number(val); state._fcInit=null; }
+  else if(act==='flip'){ state.fcFlipped = !state.fcFlipped; }
+  else if(act==='fcmark'){
+    if(val==='1') state.fcKnown++; else state.fcUnknown++;
+    state.fcFlipped=false;
+    setTimeout(()=>{ state.fcIdx++; render(); }, 120);
+    render(); return;
+  }
+  else if(act==='fcshuffle'){ buildFcDeck(); }
+  else if(act==='fcrestart'){ buildFcDeck(); }
+  else if(act==='setqsector'){ state.qSector = val==='all'?'all':Number(val); }
+  else if(act==='setqcount'){ state.qCount = Number(val); }
+  else if(act==='qstart'){ buildQuiz(); state.qStage='quiz'; }
+  else if(act==='qpick'){
+    if(state.qSelected) return;
+    state.qSelected = val;
+    if(val === state.qQuestions[state.qIdx].correct) state.qScore++;
+  }
+  else if(act==='qnext'){
+    if(state.qIdx+1 >= state.qQuestions.length){
+      const pct = Math.round((state.qScore/state.qQuestions.length)*100);
+      state.history.push(pct);
+      state.qStage='done';
+    } else { state.qIdx++; state.qSelected=null; }
+  }
+  else if(act==='qrestart'){ state.qStage='setup'; }
+
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
